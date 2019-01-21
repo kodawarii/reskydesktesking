@@ -3,6 +3,8 @@ import React, { Component } from 'react';
 // Components
 import PlayerNumber from './Components/PlayerNumber';
 import HoleNumber from './Components/HoleNumber';
+import EnterNames from './Components/EnterNames';
+import PlayGameState from './Components/PlayGameState';
 
 // Stylesheets
 import './App.css';
@@ -12,9 +14,9 @@ class App extends Component {
   constructor(){
     super();
     this.state = {
-      currentComponent: 'playerNumber',
-      playerNumber: '',
-      holes: '',
+      currentComponent: 'playerNumberState',
+      playerNumber: ' ', // if '' empty string, then props assignment doesn't seem to work
+      holes: ' ',
       players: []
     }
   }
@@ -26,7 +28,7 @@ class App extends Component {
   }
 
   handleGoToHoleNumber(){
-    this.setState({currentComponent: 'holeNumber'});
+    this.setState({currentComponent: 'holeNumberState'});
   }
 
   /* Getting Number of Holes */
@@ -35,28 +37,42 @@ class App extends Component {
     console.log("Number of Holes: " + this.state.holes);
   }
 
+  handleGoToEnterNameState(){
+    this.setState({currentComponent: 'EnterNameState'})
+  }
+
   handleGoToPlayGameState(){
-    this.setState({currentComponent: 'gameMode'})
+    this.setState({currentComponent: 'gameModeState'})
   }
 
   render() {
 
     let toRender;
 
-    if(this.state.currentComponent === 'playerNumber'){
+    if(this.state.currentComponent === 'playerNumberState'){
       toRender = <PlayerNumber 
         numberOfPlayers={this.handleUpdatePlayerNumber.bind(this)}
         goingToNumberOfHoles={this.handleGoToHoleNumber.bind(this)}
         />;
     }
-    else if(this.state.currentComponent === 'holeNumber'){
+    else if(this.state.currentComponent === 'holeNumberState'){
       toRender = <HoleNumber 
       numberOfHoles={this.handleUpdateHoleNumber.bind(this)}
-      goingToPlayGameState={this.handleGoToPlayGameState.bind(this)}
+      goingToEnterNameState={this.handleGoToEnterNameState.bind(this)}
       />;
     }
-    else if(this.state.currentComponent === 'gameMode'){
-      console.log('Rendering Game State');
+    else if(this.state.currentComponent === 'EnterNameState'){
+      toRender = <EnterNames 
+      numberOfPlayers={this.state.playerNumber}
+      goingToPlayGameState={this.handleGoToPlayGameState.bind(this)}
+      />
+    }
+    else if(this.state.currentComponent === 'gameModeState'){
+      //console.log('Rendering Game State');
+      toRender = <PlayGameState
+      numberOfHoles = {this.state.playerNumber}
+      numberOfPlayers = {this.state.holes}
+      />;
     }
 
     return (

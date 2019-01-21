@@ -29,7 +29,7 @@ class HoleNumber extends Component{
             }, function(){
                 console.log(this.state);
                 this.props.numberOfHoles(this.state.inputNumber);
-                this.props.goingToPlayGameState();
+                this.props.goingToEnterNameState();
             });
         }
 
@@ -37,13 +37,13 @@ class HoleNumber extends Component{
     }
 
     handleDefaultHoles(num){
-        alert(num);
+        //alert(num);
         this.setState({
             inputNumber: num
         }, function(){
             console.log(this.state);
             this.props.numberOfHoles(num);
-            this.props.goingToPlayGameState();
+            this.props.goingToEnterNameState();
         });
     }
 
