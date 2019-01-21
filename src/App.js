@@ -61,6 +61,11 @@ class App extends Component {
 
     return (
       <div className="App">
+        <div>
+          <p>
+            Scoreboard App Thingy
+          </p>
+        </div>
         <header className="App-header">
           {toRender}
         </header>

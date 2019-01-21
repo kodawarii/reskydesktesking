@@ -1,9 +1,12 @@
 import React, { Component } from 'react';
 
 /*
-    To-Do:
-    <> Have default 9 hole or 18 hole option
+    @To-Do:
 
+    <DONE> Have default 9 hole or 18 hole option
+    <>
+    <>
+    <>
 */
 
 class HoleNumber extends Component{
@@ -33,6 +36,17 @@ class HoleNumber extends Component{
         e.preventDefault();
     }
 
+    handleDefaultHoles(num){
+        alert(num);
+        this.setState({
+            inputNumber: num
+        }, function(){
+            console.log(this.state);
+            this.props.numberOfHoles(num);
+            this.props.goingToPlayGameState();
+        });
+    }
+
     render(){
         return(
             <div>
@@ -40,6 +54,11 @@ class HoleNumber extends Component{
                     <p>Enter Number of Holes</p> 
                     <input type="text" ref="number"/>
                     <input id="submitButton" type="submit" value="Submit" />
+                 </form>
+
+                 <form> 
+                     <button onClick={this.handleDefaultHoles.bind(this, '9')}> 9 Holes </button>
+                     <button onClick={this.handleDefaultHoles.bind(this, '18')}> 18 Holes </button>
                  </form>
             </div>
         );
