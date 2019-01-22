@@ -9,25 +9,17 @@ class EnterNames extends Component{
             numberOfPlayers:''
         }
     }
-
-    /*
+    
     handleSubmit(e){
-        if(this.refs.name.value === ''){
-            alert('');
+        for(var ref in this.refs){
+            this.state.listOfPlayers.push(this.refs[ref].value);
         }
-        else{
-            this.setState({
-                inputNumber: this.refs.number.value
-            }, function(){
-                console.log(this.state);
-                this.props.numberOfHoles(this.state.inputNumber);
-                this.props.goingToEnterNameState();
-            });
-        }
+        
+        this.props.setListOfPlayers(this.state.listOfPlayers);
+        this.props.goingToPlayGameState();
 
         e.preventDefault();
     }
-    */
 
     render(){
 
@@ -42,18 +34,17 @@ class EnterNames extends Component{
             tempArray.push(i);
         }
 
-        // Creating list of input fields for players Names
+        // Creating list of input fields for players Names, ref references for each input field is player1 player2 ... etc
         let theFields;
         theFields = tempArray.map(x => {
+            let refString = 'playerNo' + (x+1);
             return(
                 <div>
                     <p> Player {x + 1} </p>
-                    <input type="text" ref="name"/>
+                    <input type="text" ref={refString}/>
                 </div>
             );
         });
-
-        alert(theFields);
 
         // Render Component
         return(

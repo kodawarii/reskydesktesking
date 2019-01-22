@@ -45,6 +45,11 @@ class App extends Component {
     this.setState({currentComponent: 'gameModeState'})
   }
 
+  handleSetListOfPlayers(mylist){
+    this.state.players = mylist;
+    console.log("List of Players: " + this.state.players);
+  }
+
   render() {
 
     let toRender;
@@ -63,6 +68,7 @@ class App extends Component {
     }
     else if(this.state.currentComponent === 'EnterNameState'){
       toRender = <EnterNames 
+      setListOfPlayers={this.handleSetListOfPlayers.bind(this)}
       numberOfPlayers={this.state.playerNumber}
       goingToPlayGameState={this.handleGoToPlayGameState.bind(this)}
       />
@@ -72,6 +78,7 @@ class App extends Component {
       toRender = <PlayGameState
       numberOfHoles = {this.state.playerNumber}
       numberOfPlayers = {this.state.holes}
+      players = {this.state.players}
       />;
     }
 

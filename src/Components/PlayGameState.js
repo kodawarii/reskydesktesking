@@ -1,4 +1,7 @@
-import React , {Component} from 'react';
+import React, {Component} from 'react';
+
+// Components
+import SingleHoleInfo from './SingleHoleInfo';
 
 class PlayGameState extends Component{
 
@@ -7,7 +10,8 @@ class PlayGameState extends Component{
 
         this.state = {
             numberOfPlayers: '',
-            numberOfHoles: ''
+            numberOfHoles: '',
+            players: []
         }
     }
 
@@ -15,11 +19,11 @@ class PlayGameState extends Component{
 
         this.state.numberOfPlayers = this.props.numberOfPlayers;
         this.state.numberOfHoles = this.props.numberOfHoles;
+        this.state.players = this.props.players;
 
         return(
             <div>
-                <p> Enter Your Scores: </p>
-                
+                <SingleHoleInfo />
             </div>
         );
     }
