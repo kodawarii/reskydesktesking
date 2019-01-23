@@ -76,7 +76,6 @@ class App extends Component {
     else if(this.state.currentComponent === 'gameModeState'){
       //console.log('Rendering Game State');
       toRender = <PlayGameState
-      numberOfHoles = {this.state.playerNumber}
       numberOfPlayers = {this.state.holes}
       players = {this.state.players}
       />;

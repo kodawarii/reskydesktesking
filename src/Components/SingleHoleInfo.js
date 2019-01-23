@@ -8,13 +8,27 @@ class SingleHoleInfo extends Component{
 
     constructor(){
         super()
+
+        this.state={
+            currentHole: '1',
+        }
     }
 
     render(){
+
+        let topComponent = <SingleHoleInfoTopComponent 
+        currentHole={this.state.currentHole}
+        />;
+
+        let playerComponent = <SingleHoleInfoPlayerComponent 
+        listOfPlayers={this.props.listOfPlayers}
+        />
+
         return (
             <div>
-                <SingleHoleInfoTopComponent />
-                <SingleHoleInfoPlayerComponent />
+                {topComponent}
+                <br/><br/>
+                {playerComponent}
             </div>
         );
     }

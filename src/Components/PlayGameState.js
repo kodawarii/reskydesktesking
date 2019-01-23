@@ -9,25 +9,26 @@ class PlayGameState extends Component{
         super();
 
         this.state = {
-            numberOfPlayers: '',
             numberOfHoles: '',
-            players: []
+            players: [],
+            playersData: []
         }
     }
 
     render(){
 
-        this.state.numberOfPlayers = this.props.numberOfPlayers;
         this.state.numberOfHoles = this.props.numberOfHoles;
         this.state.players = this.props.players;
 
+        // rendering just one sample of singleHoleInfo whilst implementing design of singleHoleInfo
+        // @To-Do: need to implement switch-case where which singleHoleInfo to show
         let toRender = <SingleHoleInfo
-        
+        listOfPlayers={this.state.players}
         />
 
         return(
             <div>
-                {toRender}
+                {toRender} 
             </div>
         );
     }

@@ -7,9 +7,43 @@ class SingleHoleInfoPlayerComponent extends Component{
     }
 
     render(){
+
+        let listOfPlayers = this.props.listOfPlayers;
+        
+        let tableContent = listOfPlayers.map(name => {
+
+            return(
+                <tr>
+                    <td>
+                        {name}
+                    </td>
+
+                    <td>
+                        Total: 
+                    </td>
+
+                    <td>
+                        +5
+                    </td>
+
+                    <td>
+                        Current: 
+                    </td>
+
+                    <td>
+                        <button> - </button>
+                        +2
+                        <button> + </button> 
+                    </td>
+                </tr>
+            );
+        });
+
         return (
             <div>
-                <p>Player 1</p>
+                <table>
+                    {tableContent}
+                </table>
             </div>
         );
     }
