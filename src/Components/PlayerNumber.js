@@ -1,5 +1,14 @@
 import React, { Component } from 'react';
 
+/*
+    @ToDo:
+    <> Make default button options cus typing a number is shit painful
+    <>
+    <>
+    <>
+    <>
+*/
+
 class PlayerNumber extends Component{
 
     constructor(){

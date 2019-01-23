@@ -21,9 +21,13 @@ class PlayGameState extends Component{
         this.state.numberOfHoles = this.props.numberOfHoles;
         this.state.players = this.props.players;
 
+        let toRender = <SingleHoleInfo
+        
+        />
+
         return(
             <div>
-                <SingleHoleInfo />
+                {toRender}
             </div>
         );
     }
