@@ -80,6 +80,9 @@ class App extends Component {
       players = {this.state.players}
       />;
     }
+    else{
+      alert('Extremely Fatal Error Occured - no page to load');
+    }
 
     return (
       <div className="App">

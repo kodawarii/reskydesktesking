@@ -9,13 +9,12 @@ class SingleHoleInfoPlayerComponent extends Component{
     handleUpdatePlayers(name, isGoingDown){
         console.log("Handling Update Players in SingleHoleInfoPlayerComponent");
         this.props.updatePlayerData(name, isGoingDown);
+        this.forceUpdate();
     }
 
     render(){
-
-        let listOfPlayersData = this.props.listOfPlayersData;
         
-        let tableContent = listOfPlayersData.map(player => {
+        let tableContent = this.props.listOfPlayersData.map(player => {
             return(
                 <tr>
                     <td>
