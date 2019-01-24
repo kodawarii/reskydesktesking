@@ -6,16 +6,20 @@ class SingleHoleInfoPlayerComponent extends Component{
         super()
     }
 
+    handleUpdatePlayers(name, isGoingDown){
+        console.log("Handling Update Players in SingleHoleInfoPlayerComponent");
+        this.props.updatePlayerData(name, isGoingDown);
+    }
+
     render(){
 
-        let listOfPlayers = this.props.listOfPlayers;
+        let listOfPlayersData = this.props.listOfPlayersData;
         
-        let tableContent = listOfPlayers.map(name => {
-
+        let tableContent = listOfPlayersData.map(player => {
             return(
                 <tr>
                     <td>
-                        {name}
+                        {player.name}
                     </td>
 
                     <td>
@@ -23,7 +27,7 @@ class SingleHoleInfoPlayerComponent extends Component{
                     </td>
 
                     <td>
-                        +5
+                        {player.score}
                     </td>
 
                     <td>
@@ -31,9 +35,9 @@ class SingleHoleInfoPlayerComponent extends Component{
                     </td>
 
                     <td>
-                        <button> - </button>
-                        +2
-                        <button> + </button> 
+                        <button onClick={this.handleUpdatePlayers.bind(this, player.name, true)}> - </button>
+                        hole.getPlayerScore
+                        <button onClick={this.handleUpdatePlayers.bind(this, player.name, false)}> +  </button> 
                     </td>
                 </tr>
             );

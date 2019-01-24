@@ -11,6 +11,7 @@ class SingleHoleInfo extends Component{
 
         this.state={
             currentHole: '1',
+            holeData: []
         }
     }
 
@@ -21,7 +22,8 @@ class SingleHoleInfo extends Component{
         />;
 
         let playerComponent = <SingleHoleInfoPlayerComponent 
-        listOfPlayers={this.props.listOfPlayers}
+        listOfPlayersData={this.props.listOfPlayersData}
+        updatePlayerData={this.props.updatePlayerData}
         />
 
         return (
