@@ -4,19 +4,19 @@ self.__precacheManifest = [
     "url": "/reskydesktesking/static/js/runtime~main.461e50c8.js"
   },
   {
-    "revision": "dd6e2914335b371faf7a",
-    "url": "/reskydesktesking/static/js/main.dd6e2914.chunk.js"
+    "revision": "96f0515ee7253c0f870b",
+    "url": "/reskydesktesking/static/js/main.96f0515e.chunk.js"
   },
   {
     "revision": "f739feb7d61c48a46bed",
     "url": "/reskydesktesking/static/js/1.f739feb7.chunk.js"
   },
   {
-    "revision": "dd6e2914335b371faf7a",
+    "revision": "96f0515ee7253c0f870b",
     "url": "/reskydesktesking/static/css/main.90a22882.chunk.css"
   },
   {
-    "revision": "ca2b99ab13b98a2d4bc3228c49fd9f29",
+    "revision": "1f3a5d8db04af3c6e42f3e0e28339792",
     "url": "/reskydesktesking/index.html"
   }
 ];
