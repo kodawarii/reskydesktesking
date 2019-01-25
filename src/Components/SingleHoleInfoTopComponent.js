@@ -2,26 +2,22 @@ import React, { Component } from 'react';
 
 class SingleHoleInfoTopComponent extends Component{
 
-    constructor(){
-        super()
-
-        this.state={
-            par: '3'
-        }
-    }
-
     handleUpdateHoleNumber(direction){
         this.props.handleUpdateHoleNumber(direction);
+    }
+
+    handleUpdateParNumber(direction){
+        this.props.handleUpdateParNumber(direction);
     }
 
     render(){
 
         let currentHole = this.props.currentHole;
-        let par = this.state.par;
+        let par = this.props.par;
 
         //@ To-Do: 
         // If hole number = 1 or max, then disable button
-        
+
         return (
             <div>
                 <div>
@@ -30,9 +26,9 @@ class SingleHoleInfoTopComponent extends Component{
                     <button onClick={this.handleUpdateHoleNumber.bind(this, 'next')}> → </button> 
                 </div>
                 <div>
-                    <button> - </button>
+                    <button onClick={this.handleUpdateParNumber.bind(this, 'minus')}> - </button>
                     Par: {par}
-                    <button> + </button> 
+                    <button onClick={this.handleUpdateParNumber.bind(this, 'add')}> + </button> 
                 </div>
             </div>
         );

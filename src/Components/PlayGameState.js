@@ -19,6 +19,33 @@ class PlayGameState extends Component{
         }
     }
 
+    handleUpdateParNumber(direction){
+        let currentHoleToDisplay = this.state.holeToDisplay;
+        let currentHoleParNumber = this.state.holesData[currentHoleToDisplay].par;
+
+        console.log("DEBUG: CurrentHoleToDisplay: " + currentHoleToDisplay);
+        console.log("DEBUG: CurrentHoleParNumber: " + currentHoleParNumber);
+
+        for(var i in this.state.holesData){ 
+            if(this.state.holesData[i].holeNumber === currentHoleToDisplay){
+                if(direction === 'minus'){
+                    this.state.holesData[i].par = currentHoleParNumber - 1;
+                }
+                else if(direction === 'add'){
+                    this.state.holesData[i].par = currentHoleParNumber + 1;
+                }
+            }
+        }
+
+        
+
+        console.log("Current Hole to Display: " + this.state.holeToDisplay);
+        console.log("Got told to display: " + this.state.holesData[currentHoleToDisplay].holeNumber);
+        console.log("Updated Par: " + this.state.holesData[currentHoleToDisplay].par);
+
+        this.forceUpdate();
+    }
+
     handleWhichHoleToShow(direction){
         let currentHoleToDisplay = this.state.holeToDisplay;
         if(direction === 'prev'){
@@ -91,6 +118,8 @@ class PlayGameState extends Component{
                     listOfPlayersData={this.state.playersData}
                     updatePlayerData={this.updatePlayerData.bind(this)}
                     updateHoleNumber={this.handleWhichHoleToShow.bind(this)}
+                    updateParNumber={this.handleUpdateParNumber.bind(this)}
+                    par={currentHole.par}
                     />
                 </div>
             );
