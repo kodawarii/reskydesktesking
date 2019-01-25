@@ -12,7 +12,7 @@ class SingleHoleInfoTopComponent extends Component{
 
     render(){
 
-        let currentHole = this.props.currentHole;
+        let currentHole = this.props.currentHole + 1;
         let par = this.props.par;
 
         //@ To-Do: 

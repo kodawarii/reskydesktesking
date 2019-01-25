@@ -11,7 +11,7 @@ class PlayGameState extends Component{
         this.state = {
             numberOfHoles: '',
             holesData: [],
-            holeToDisplay: 1,
+            holeToDisplay: 0,
 
             players: [],
             playersData: [],
@@ -36,8 +36,6 @@ class PlayGameState extends Component{
                 }
             }
         }
-
-        
 
         console.log("Current Hole to Display: " + this.state.holeToDisplay);
         console.log("Got told to display: " + this.state.holesData[currentHoleToDisplay].holeNumber);
