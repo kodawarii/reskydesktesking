@@ -10,8 +10,33 @@ class PlayGameState extends Component{
 
         this.state = {
             numberOfHoles: '',
+            holesData: [],
+            holeToDisplay: 1,
+
             players: [],
-            playersData: []
+            playersData: [],
+            initialRender: true
+        }
+    }
+
+    handleWhichHoleToShow(direction){
+        let currentHoleToDisplay = this.state.holeToDisplay;
+        if(direction === 'prev'){
+            this.state.holeToDisplay = currentHoleToDisplay - 1;
+        }
+        else if(direction === 'next'){
+            this.state.holeToDisplay = currentHoleToDisplay + 1;
+        }
+
+        this.forceUpdate();
+    }
+
+    setHoleData(){
+        for(var i = 0; i < parseInt(this.state.numberOfHoles); i++){
+            this.state.holesData.push({
+                holeNumber: i,
+                par: 3
+            });
         }
     }
 
@@ -47,10 +72,32 @@ class PlayGameState extends Component{
 
     render(){
 
-        this.state.numberOfHoles = this.props.numberOfHoles;
-        this.state.players = this.props.players;
-        this.setPlayerData();
+        if(this.state.initialRender){
+            this.state.numberOfHoles = this.props.numberOfHoles;
+            this.state.players = this.props.players;
+            this.setPlayerData();
+            this.setHoleData();
 
+            this.state.initialRender = false;
+        }
+
+        let toRender;
+
+        let arrayOfSingleHoleInfoComponents = this.state.holesData.map( currentHole => {
+            return (
+                <div>
+                    <SingleHoleInfo
+                    holeNumber={currentHole.holeNumber}
+                    listOfPlayersData={this.state.playersData}
+                    updatePlayerData={this.updatePlayerData.bind(this)}
+                    updateHoleNumber={this.handleWhichHoleToShow.bind(this)}
+                    />
+                </div>
+            );
+        });
+
+
+        /*
         // rendering just one sample of singleHoleInfo whilst implementing design of singleHoleInfo
         // @To-Do: need to implement switch-case where which singleHoleInfo to show
         let toRender = <SingleHoleInfo
@@ -58,6 +105,14 @@ class PlayGameState extends Component{
         updatePlayerData={this.updatePlayerData.bind(this)}
 
         />
+        */
+
+        // Which Hole to show
+        for(var i in arrayOfSingleHoleInfoComponents){
+            if(parseInt(i) === this.state.holeToDisplay){
+                toRender = arrayOfSingleHoleInfoComponents[i];
+            }
+        }
 
         return(
             <div>

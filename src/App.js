@@ -42,7 +42,7 @@ class App extends Component {
   }
 
   handleGoToPlayGameState(){
-    this.setState({currentComponent: 'gameModeState'})
+    this.setState({currentComponent: 'playGameState'})
   }
 
   handleSetListOfPlayers(mylist){
@@ -73,10 +73,10 @@ class App extends Component {
       goingToPlayGameState={this.handleGoToPlayGameState.bind(this)}
       />
     }
-    else if(this.state.currentComponent === 'gameModeState'){
+    else if(this.state.currentComponent === 'playGameState'){
       //console.log('Rendering Game State');
       toRender = <PlayGameState
-      numberOfPlayers = {this.state.holes}
+      numberOfHoles = {this.state.holes}
       players = {this.state.players}
       />;
     }

@@ -10,17 +10,24 @@ class SingleHoleInfoTopComponent extends Component{
         }
     }
 
+    handleUpdateHoleNumber(direction){
+        this.props.handleUpdateHoleNumber(direction);
+    }
+
     render(){
 
         let currentHole = this.props.currentHole;
         let par = this.state.par;
 
+        //@ To-Do: 
+        // If hole number = 1 or max, then disable button
+        
         return (
             <div>
                 <div>
-                    <button> ← </button>
+                    <button onClick={this.handleUpdateHoleNumber.bind(this, 'prev')}> ← </button>
                     Hole {currentHole}
-                    <button> → </button> 
+                    <button onClick={this.handleUpdateHoleNumber.bind(this, 'next')}> → </button> 
                 </div>
                 <div>
                     <button> - </button>

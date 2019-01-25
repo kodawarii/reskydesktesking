@@ -2,10 +2,6 @@ import React, { Component } from 'react';
 
 class SingleHoleInfoPlayerComponent extends Component{
 
-    constructor(){
-        super()
-    }
-
     handleUpdatePlayers(name, isGoingDown){
         console.log("Handling Update Players in SingleHoleInfoPlayerComponent");
         this.props.updatePlayerData(name, isGoingDown);
@@ -35,7 +31,7 @@ class SingleHoleInfoPlayerComponent extends Component{
 
                     <td>
                         <button onClick={this.handleUpdatePlayers.bind(this, player.name, true)}> - </button>
-                        hole.getPlayerScore
+                        +3 GG
                         <button onClick={this.handleUpdatePlayers.bind(this, player.name, false)}> +  </button> 
                     </td>
                 </tr>

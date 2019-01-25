@@ -6,19 +6,11 @@ import SingleHoleInfoPlayerComponent from './SingleHoleInfoPlayerComponent'
 
 class SingleHoleInfo extends Component{
 
-    constructor(){
-        super()
-
-        this.state={
-            currentHole: '1',
-            holeData: []
-        }
-    }
-
     render(){
 
         let topComponent = <SingleHoleInfoTopComponent 
-        currentHole={this.state.currentHole}
+        currentHole={this.props.holeNumber}
+        handleUpdateHoleNumber={this.props.updateHoleNumber.bind(this)}
         />;
 
         let playerComponent = <SingleHoleInfoPlayerComponent 
