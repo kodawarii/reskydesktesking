@@ -5,6 +5,7 @@ class SingleHoleInfoPlayerComponent extends Component{
     handleUpdatePlayers(name, isGoingDown){
         console.log("Handling Update Players in SingleHoleInfoPlayerComponent");
         this.props.updatePlayerData(name, isGoingDown);
+        this.props.updatePlayerDataForHole(name, isGoingDown);
         this.forceUpdate();
     }
 
@@ -31,7 +32,7 @@ class SingleHoleInfoPlayerComponent extends Component{
 
                     <td>
                         <button onClick={this.handleUpdatePlayers.bind(this, player.name, true)}> - </button>
-                        +3 GG
+                        {player.holeData[this.props.currentHole]}
                         <button onClick={this.handleUpdatePlayers.bind(this, player.name, false)}> +  </button> 
                     </td>
                 </tr>

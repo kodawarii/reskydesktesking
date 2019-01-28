@@ -75,7 +75,7 @@ class PlayGameState extends Component{
         for(var i = 0; i < parseInt(this.state.numberOfHoles); i++){
             this.state.holesData.push({
                 holeNumber: i,
-                par: 3
+                par: 3,
             });
         }
     }
@@ -85,12 +85,21 @@ class PlayGameState extends Component{
             this.state.playersData.push({
                 name: this.state.players[player],
                 score: 0,
+                holeData: []
             });
+        }
+
+        for(var u in this.state.players){
+            for(var i = 0; i < this.state.numberOfHoles; i++){
+                this.state.playersData[u].holeData.push(0);
+            }
+
+            //console.log("Player Hole Data | Name: " + this.state.playersData[u].name + " HoleData: " + this.state.playersData[u].holeData);
         }
     }
 
     updatePlayerData(player, isGoingDown){
-        for(var i in this.state.playersData){ // some fucking reason, this is index, NOT the player data
+        for(var i in this.state.playersData){
             let singlePlayer = this.state.playersData[i];
             if(singlePlayer.name === player){
                 let currentScore = this.state.playersData[i].score
@@ -102,11 +111,23 @@ class PlayGameState extends Component{
                 } 
             }
         }
+    }
 
-        // some debugging to see if score actually gets updated, need to somehow show this update on webpage dynamically
-        for(var i in this.state.playersData){
-            let playerData = this.state.playersData[i]
-            console.log("Name: " + playerData.name + " Score: " + playerData.score);
+    updatePlayerDataForHole(player, isGoingDown){
+        for(var i in this.state.playersData){ // finding right player
+            let singlePlayer = this.state.playersData[i]
+            let currentHole = this.state.holeToDisplay;
+
+            if(singlePlayer.name === player){// if we found correct player
+                let currentScoreForThatHole = singlePlayer.holeData[currentHole];
+
+                if(isGoingDown){
+                    this.state.playersData[i].holeData[currentHole] = currentScoreForThatHole - 1;
+                }
+                else{
+                    this.state.playersData[i].holeData[currentHole] = currentScoreForThatHole + 1;
+                }
+            }
         }
     }
 
@@ -130,7 +151,8 @@ class PlayGameState extends Component{
                     holeNumber={currentHole.holeNumber}
                     listOfPlayersData={this.state.playersData}
                     updatePlayerData={this.updatePlayerData.bind(this)}
-                    updateHoleNumber={this.handleUpdateWhichHoleToShow.bind(this)}
+                    updatePlayerDataForHole={this.updatePlayerDataForHole.bind(this)}
+                    updateHoleNumber={this.handleUpdateWhichHoleToShow.bind(this)} 
                     updateParNumber={this.handleUpdateParNumber.bind(this)}
                     par={currentHole.par}
                     />
