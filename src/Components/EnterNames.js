@@ -43,7 +43,7 @@ class EnterNames extends Component{
             let refString = 'playerNo' + (x+1);
             return(
                 <div>
-                    Player  {x + 1} 
+                    Player  {x + 1} &nbsp; &nbsp;
                     <input type="text" ref={refString} className="inputField"/>
                     <br/><br/>
                 </div>

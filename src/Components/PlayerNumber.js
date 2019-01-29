@@ -66,23 +66,29 @@ class PlayerNumber extends Component{
                         <li>
                             <button onClick={this.handleDefaultPlayers.bind(this, 3)} className="playerNumberButton"> 3 </button>
                         </li>
-                        <li>
-                            <button onClick={this.handleDefaultPlayers.bind(this, 4)} className="playerNumberButton"> 4 </button>
-                        </li>
                     </ul>
 
                     <ul className="listPlayerNumber">
+                        <li>
+                            <button onClick={this.handleDefaultPlayers.bind(this, 4)} className="playerNumberButton"> 4 </button>
+                        </li>
                         <li>
                             <button onClick={this.handleDefaultPlayers.bind(this, 5)} className="playerNumberButton"> 5 </button>
                         </li>
                         <li>
                             <button onClick={this.handleDefaultPlayers.bind(this, 6)} className="playerNumberButton"> 6 </button>
                         </li>
+                    </ul>
+
+                    <ul className="listPlayerNumber">
                         <li>
                             <button onClick={this.handleDefaultPlayers.bind(this, 7)} className="playerNumberButton"> 7 </button>
                         </li>
                         <li>
                             <button onClick={this.handleDefaultPlayers.bind(this, 8)} className="playerNumberButton"> 8 </button>
+                        </li>
+                        <li>
+                            <button onClick={this.handleDefaultPlayers.bind(this, 9)} className="playerNumberButton"> 9 </button>
                         </li>
                     </ul>
                 </form>

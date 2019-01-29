@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
 
+// Stylesheets
+import './STYLE_SingleHoleInfoBottomComponent.css';
+
 class SingleHoleInfoPlayerComponent extends Component{
 
     handleUpdatePlayers(name, isGoingDown){
@@ -23,17 +26,17 @@ class SingleHoleInfoPlayerComponent extends Component{
                     </td>
 
                     <td>
-                        {player.score}
+                        {player.score} &nbsp; &nbsp;
                     </td>
 
                     <td>
-                        Current: 
+                        Current: &nbsp;
                     </td>
 
                     <td>
-                        <button onClick={this.handleUpdatePlayers.bind(this, player.name, true)}> - </button>
-                        {player.holeData[this.props.currentHole]}
-                        <button onClick={this.handleUpdatePlayers.bind(this, player.name, false)}> +  </button> 
+                        <button onClick={this.handleUpdatePlayers.bind(this, player.name, true)} className="playerScoreButton"> - </button>
+                        &nbsp; {player.holeData[this.props.currentHole]} &nbsp;
+                        <button onClick={this.handleUpdatePlayers.bind(this, player.name, false)} className="playerScoreButton"> + </button> 
                     </td>
                 </tr>
             );
