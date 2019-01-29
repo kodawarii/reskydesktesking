@@ -87,6 +87,7 @@ class App extends Component {
     return (
       <div className="App">
         <header className="App-header">
+          <link href="https://fonts.googleapis.com/css?family=Gruppo" rel="stylesheet"/>
           {toRender}
         </header>
         <footer> Created By Paul Yoon (kodawarii/ayamachi, SK_DUDevelopment 2019©) </footer>

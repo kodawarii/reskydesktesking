@@ -14,39 +14,53 @@ class SingleHoleInfoPlayerComponent extends Component{
 
     render(){
         
-        let tableContent = this.props.listOfPlayersData.map(player => {
+        let toRender = this.props.listOfPlayersData.map(player => {
             return(
-                <tr>
-                    <td>
-                        {player.name}
-                    </td>
+                <table class="playerTable">
+                    <tr>
+                        <td>
+                            {player.name}
+                        </td>
 
-                    <td>
-                        Total: 
-                    </td>
+                        <td>
+                            <table>
+                                <tr>
+                                    <td>
+                                    Total: 
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        {player.score} &nbsp; &nbsp;
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
 
-                    <td>
-                        {player.score} &nbsp; &nbsp;
-                    </td>
-
-                    <td>
-                        Current: &nbsp;
-                    </td>
-
-                    <td>
-                        <button onClick={this.handleUpdatePlayers.bind(this, player.name, true)} className="playerScoreButton"> - </button>
-                        &nbsp; {player.holeData[this.props.currentHole]} &nbsp;
-                        <button onClick={this.handleUpdatePlayers.bind(this, player.name, false)} className="playerScoreButton"> + </button> 
-                    </td>
-                </tr>
+                        <td>
+                            <table>
+                                <tr>
+                                    <td>
+                                        Current: &nbsp;
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <button onClick={this.handleUpdatePlayers.bind(this, player.name, true)} className="playerScoreButtonMINUS"> - </button>
+                                        &nbsp; {player.holeData[this.props.currentHole]} &nbsp;
+                                        <button onClick={this.handleUpdatePlayers.bind(this, player.name, false)} className="playerScoreButtonPLUS"> + </button> 
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
             );
         });
 
         return (
             <div>
-                <table>
-                    {tableContent}
-                </table>
+                {toRender}
             </div>
         );
     }

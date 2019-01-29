@@ -1,6 +1,19 @@
-.playerScoreButton{
+.playerScoreButtonMINUS{
     background-color: #FFFFFF;
-    border: 2px solid #555555;
+    border: 1px solid #bebebe;
+    color: #555555;
+    padding: 6px 12px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    border-radius: 50%;
+    outline: none;
+  }
+
+  .playerScoreButtonPLUS{
+    background-color: #FFFFFF;
+    border: 1px solid #bebebe;
     color: #555555;
     padding: 6px 10px;
     text-align: center;
@@ -8,5 +21,21 @@
     display: inline-block;
     font-size: 16px;
     border-radius: 50%;
-    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19)
-  }
+    outline: none;
+}
+
+.playerScoreButtonMINUS:hover {
+  border-color: rgb(255, 195, 106);
+  box-shadow: 0 0 12px #ffd78c;
+  color: black;
+}
+
+.playerScoreButtonPLUS:hover {
+  border-color: rgb(111, 255, 106);
+  box-shadow: 0 0 12px #baff8c;
+  color: black;
+}
+
+.playerTable td {
+  padding-right: 20px;
+}

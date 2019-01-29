@@ -1,25 +1,59 @@
 .HoleArrowButton{
   background-color: #FFFFFF;
-  border: 2px solid #555555;
+  border: none;
   color: #555555;
-  padding: 12px 15px;
+  outline: none;
   text-align: center;
   text-decoration: none;
   display: inline-block;
-  font-size: 16px;
-  border-radius: 50%;
-  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19)
+  font-size: 36px;
+  
 }
 
-.ParArrowButton{
+.ParArrowButtonMINUS{
   background-color: #FFFFFF;
-  border: 2px solid #555555;
+  border: 1px solid #bebebe;
   color: #555555;
-  padding: 6px 10px;
+  padding: 2px 8px;
   text-align: center;
   text-decoration: none;
   display: inline-block;
   font-size: 16px;
   border-radius: 50%;
-  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19)
+  outline: none;
+}
+
+.ParArrowButtonPLUS{
+  background-color: #FFFFFF;
+  border: 1px solid #bebebe;
+  color: #555555;
+  padding: 2px 6px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  border-radius: 50%;
+  outline: none;
+}
+
+.HoleArrowButton:hover{
+  color: black;
+  text-shadow: 0 0 12px #929292;
+}
+
+.ParArrowButtonMINUS:hover {
+  border-color: rgb(255, 195, 106);
+  box-shadow: 0 0 12px #ffd78c;
+  color: black;
+}
+
+.ParArrowButtonPLUS:hover {
+  border-color: rgb(111, 255, 106);
+  box-shadow: 0 0 12px #baff8c;
+  color: black;
+}
+
+.parNumber{
+  font-size: 30px;
+  text-decoration: bold;
 }

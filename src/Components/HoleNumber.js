@@ -64,10 +64,10 @@ class HoleNumber extends Component{
                  <form> 
                      <ul classname="listHoleNumber">
                          <li>
-                            <button onClick={this.handleDefaultHoles.bind(this, '9')} className="HoleNumberButton"> 9 Holes </button>
+                            <button onClick={this.handleDefaultHoles.bind(this, '9')} className="holeNumberButton" id="nineHoles"> 9 Holes </button>
                          </li>
                          <li>
-                            <button onClick={this.handleDefaultHoles.bind(this, '18')} className="HoleNumberButton"> 18 Holes </button>
+                            <button onClick={this.handleDefaultHoles.bind(this, '18')} className="holeNumberButton" id="eighteenHoles"> 18 Holes </button>
                          </li>
                      </ul>
                  </form>
