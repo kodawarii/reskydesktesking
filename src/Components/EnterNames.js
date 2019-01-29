@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
 
+// Stylesheets
+import './STYLE_EnterNames.css';
+
 class EnterNames extends Component{
     constructor(){
         super();
@@ -40,8 +43,9 @@ class EnterNames extends Component{
             let refString = 'playerNo' + (x+1);
             return(
                 <div>
-                    <p> Player {x + 1} </p>
-                    <input type="text" ref={refString}/>
+                    Player  {x + 1} 
+                    <input type="text" ref={refString} className="inputField"/>
+                    <br/><br/>
                 </div>
             );
         });
@@ -52,7 +56,8 @@ class EnterNames extends Component{
                 <p>Enter your names:</p>
                 <form onSubmit={this.handleSubmit.bind(this)}>
                     {theFields}
-                    <input id="submitButton" type="submit" value="Submit" />
+                    <br/>
+                    <input id="submitButton" type="submit" value="Submit" className="submitButton"/>
                 </form>
             </div>
         );

@@ -9,6 +9,10 @@ import React, { Component } from 'react';
     <>
 */
 
+
+// Stylesheets
+import './STYLE_EnterHoleNumber.css';
+
 class HoleNumber extends Component{
 
     constructor(){
@@ -19,6 +23,11 @@ class HoleNumber extends Component{
         }
     }
 
+    /**
+     * Deprecated Method
+     */
+
+    /*
     handleSubmit(e){
         if(this.refs.number.value === ''){
             alert('Please enter a value');
@@ -35,6 +44,7 @@ class HoleNumber extends Component{
 
         e.preventDefault();
     }
+    */
 
     handleDefaultHoles(num){
         //alert(num);
@@ -50,15 +60,16 @@ class HoleNumber extends Component{
     render(){
         return(
             <div>
-                <form onSubmit = {this.handleSubmit.bind(this)}>
-                    <p>Enter Number of Holes</p> 
-                    <input type="text" ref="number"/>
-                    <input id="submitButton" type="submit" value="Submit" />
-                 </form>
-
+                Select Number of Holes:
                  <form> 
-                     <button onClick={this.handleDefaultHoles.bind(this, '9')}> 9 Holes </button>
-                     <button onClick={this.handleDefaultHoles.bind(this, '18')}> 18 Holes </button>
+                     <ul classname="listHoleNumber">
+                         <li>
+                            <button onClick={this.handleDefaultHoles.bind(this, '9')} className="HoleNumberButton"> 9 Holes </button>
+                         </li>
+                         <li>
+                            <button onClick={this.handleDefaultHoles.bind(this, '18')} className="HoleNumberButton"> 18 Holes </button>
+                         </li>
+                     </ul>
                  </form>
             </div>
         );

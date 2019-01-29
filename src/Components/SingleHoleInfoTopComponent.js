@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
 
+// Stylesheets
+import './STYLE_SingleHoleInfoTopComponent.css';
+
 class SingleHoleInfoTopComponent extends Component{
 
     handleUpdateHoleNumber(direction){
@@ -15,20 +18,17 @@ class SingleHoleInfoTopComponent extends Component{
         let currentHole = this.props.currentHole + 1;
         let par = this.props.par;
 
-        //@ To-Do: 
-        // If hole number = 1 or max, then disable button
-
         return (
             <div>
                 <div>
-                    <button onClick={this.handleUpdateHoleNumber.bind(this, 'prev')}> ← </button>
+                    <button onClick={this.handleUpdateHoleNumber.bind(this, 'prev')} className="HoleArrowButton"> ⯇ </button>
                     Hole {currentHole}
-                    <button onClick={this.handleUpdateHoleNumber.bind(this, 'next')}> → </button> 
+                    <button onClick={this.handleUpdateHoleNumber.bind(this, 'next')} className="HoleArrowButton"> ⯈ </button> 
                 </div>
                 <div>
-                    <button onClick={this.handleUpdateParNumber.bind(this, 'minus')}> - </button>
+                    <button onClick={this.handleUpdateParNumber.bind(this, 'minus')} className="HoleArrowButton"> - </button>
                     PAR {par}
-                    <button onClick={this.handleUpdateParNumber.bind(this, 'add')}> + </button> 
+                    <button onClick={this.handleUpdateParNumber.bind(this, 'add')} className="HoleArrowButton"> + </button> 
                 </div>
             </div>
         );

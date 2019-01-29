@@ -86,14 +86,10 @@ class App extends Component {
 
     return (
       <div className="App">
-        <div>
-          <p>
-            Scoreboard App Thingy
-          </p>
-        </div>
         <header className="App-header">
           {toRender}
         </header>
+        <footer> Created By Paul Yoon (kodawarii/ayamachi, SK_DUDevelopment 2019©) </footer>
       </div>
      
     );

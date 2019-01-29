@@ -9,6 +9,9 @@ import React, { Component } from 'react';
     <>
 */
 
+// Stylesheets
+import './STYLE_EnterPlayerNumber.css';
+
 class PlayerNumber extends Component{
 
     constructor(){
@@ -19,6 +22,7 @@ class PlayerNumber extends Component{
         }
     }
 
+    /* // deprecated function no longer in use
     handleSubmit(e){
         if(this.refs.number.value === ''){
             alert('Please enter a value');
@@ -35,6 +39,7 @@ class PlayerNumber extends Component{
 
         e.preventDefault();
     }
+    */
 
     handleDefaultPlayers(num){
         this.setState({
@@ -49,16 +54,37 @@ class PlayerNumber extends Component{
     render(){
         return(
             <div>
-                <form onSubmit = {this.handleSubmit.bind(this)}>
-                    <p>Enter Number of Players</p> 
-                    <input type="text" ref="number"/>
-                    <input id="submitButton" type="submit" value="Submit" />
-                </form>
                 <form>
-                    <button onClick={this.handleDefaultPlayers.bind(this, 2)}> 2 </button>
-                    <button onClick={this.handleDefaultPlayers.bind(this, 3)}> 3 </button>
-                    <button onClick={this.handleDefaultPlayers.bind(this, 4)}> 4 </button>
-                    <button onClick={this.handleDefaultPlayers.bind(this, 5)}> 5 </button>
+                    Select Number of Players:
+                    <ul className="listPlayerNumber">
+                        <li>
+                            <button onClick={this.handleDefaultPlayers.bind(this, 1)} className="playerNumberButton"> 1 </button>
+                        </li>
+                        <li>
+                            <button onClick={this.handleDefaultPlayers.bind(this, 2)} className="playerNumberButton"> 2 </button>
+                        </li>
+                        <li>
+                            <button onClick={this.handleDefaultPlayers.bind(this, 3)} className="playerNumberButton"> 3 </button>
+                        </li>
+                        <li>
+                            <button onClick={this.handleDefaultPlayers.bind(this, 4)} className="playerNumberButton"> 4 </button>
+                        </li>
+                    </ul>
+
+                    <ul className="listPlayerNumber">
+                        <li>
+                            <button onClick={this.handleDefaultPlayers.bind(this, 5)} className="playerNumberButton"> 5 </button>
+                        </li>
+                        <li>
+                            <button onClick={this.handleDefaultPlayers.bind(this, 6)} className="playerNumberButton"> 6 </button>
+                        </li>
+                        <li>
+                            <button onClick={this.handleDefaultPlayers.bind(this, 7)} className="playerNumberButton"> 7 </button>
+                        </li>
+                        <li>
+                            <button onClick={this.handleDefaultPlayers.bind(this, 8)} className="playerNumberButton"> 8 </button>
+                        </li>
+                    </ul>
                 </form>
             </div>
         );
