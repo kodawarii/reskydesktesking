@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 /*
     @ToDo:
-    <> Make default button options cus typing a number is shit painful
+    <DONE> Make default button options cus typing a number is shit painful
     <>
     <>
     <>
@@ -36,6 +36,16 @@ class PlayerNumber extends Component{
         e.preventDefault();
     }
 
+    handleDefaultPlayers(num){
+        this.setState({
+            inputNumber: num
+        }, function(){
+            console.log(this.state);
+            this.props.numberOfPlayers(this.state.inputNumber);
+            this.props.goingToNumberOfHoles();
+        });
+    }
+
     render(){
         return(
             <div>
@@ -43,7 +53,13 @@ class PlayerNumber extends Component{
                     <p>Enter Number of Players</p> 
                     <input type="text" ref="number"/>
                     <input id="submitButton" type="submit" value="Submit" />
-                 </form>
+                </form>
+                <form>
+                    <button onClick={this.handleDefaultPlayers.bind(this, 2)}> 2 </button>
+                    <button onClick={this.handleDefaultPlayers.bind(this, 3)}> 3 </button>
+                    <button onClick={this.handleDefaultPlayers.bind(this, 4)}> 4 </button>
+                    <button onClick={this.handleDefaultPlayers.bind(this, 5)}> 5 </button>
+                </form>
             </div>
         );
     }

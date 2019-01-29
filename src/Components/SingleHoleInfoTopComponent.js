@@ -27,7 +27,7 @@ class SingleHoleInfoTopComponent extends Component{
                 </div>
                 <div>
                     <button onClick={this.handleUpdateParNumber.bind(this, 'minus')}> - </button>
-                    Par: {par}
+                    PAR {par}
                     <button onClick={this.handleUpdateParNumber.bind(this, 'add')}> + </button> 
                 </div>
             </div>
