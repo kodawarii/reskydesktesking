@@ -84,35 +84,43 @@ class PlayGameState extends Component{
         for(var player in this.state.players){
             this.state.playersData.push({
                 name: this.state.players[player],
-                score: 0,
-                holeData: []
+                totalScore: 0,
+                parScore: 0,
+                holeData: [],
+                holeDataPAR: []
             });
         }
 
         for(var u in this.state.players){
             for(var i = 0; i < this.state.numberOfHoles; i++){
                 this.state.playersData[u].holeData.push(0);
+                this.state.playersData[u].holeDataPAR.push(0);
             }
 
             //console.log("Player Hole Data | Name: " + this.state.playersData[u].name + " HoleData: " + this.state.playersData[u].holeData);
         }
     }
 
+    /* Update Score Data for both Overall-Score and PAR-Over Score :: FOR OVERALL GAME */
     updatePlayerData(player, isGoingDown){
         for(var i in this.state.playersData){
             let singlePlayer = this.state.playersData[i];
             if(singlePlayer.name === player){
-                let currentScore = this.state.playersData[i].score
+                let currentScore = this.state.playersData[i].totalScore;
+                let currentScorePAR = this.state.playersData[i].parScore;
                 if(isGoingDown){
-                    this.state.playersData[i].score = currentScore - 1;
+                    this.state.playersData[i].totalScore = currentScore - 1;
+                    this.state.playersData[i].parScore = currentScorePAR - 1;
                 }
                 else{
-                    this.state.playersData[i].score = currentScore + 1;
+                    this.state.playersData[i].totalScore = currentScore + 1;
+                    this.state.playersData[i].parScore = currentScorePAR + 1;
                 } 
             }
         }
     }
 
+    /* Update Score Data for both Overall-Score and PAR-Over Score :: FOR PARTICULAR HOLE */
     updatePlayerDataForHole(player, isGoingDown){
         for(var i in this.state.playersData){ // finding right player
             let singlePlayer = this.state.playersData[i]
@@ -120,12 +128,15 @@ class PlayGameState extends Component{
 
             if(singlePlayer.name === player){// if we found correct player
                 let currentScoreForThatHole = singlePlayer.holeData[currentHole];
+                let currentPARScoreForThatHole = singlePlayer.holeDataPAR[currentHole];
 
                 if(isGoingDown){
                     this.state.playersData[i].holeData[currentHole] = currentScoreForThatHole - 1;
+                    this.state.playersData[i].holeDataPAR[currentHole] = currentPARScoreForThatHole - 1;
                 }
                 else{
                     this.state.playersData[i].holeData[currentHole] = currentScoreForThatHole + 1;
+                    this.state.playersData[i].holeDataPAR[currentHole] = currentPARScoreForThatHole + 1;
                 }
             }
         }

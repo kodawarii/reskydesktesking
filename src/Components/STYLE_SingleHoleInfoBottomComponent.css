@@ -62,6 +62,10 @@
   padding: 4px;
 }
 
+.parScore{
+  font-size: 16px;
+}
+
 .playerNameText:hover{
   color: #548afd;
   text-shadow: 1px 1px 2px #a8e6ff;

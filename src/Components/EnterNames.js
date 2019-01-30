@@ -57,7 +57,7 @@ class EnterNames extends Component{
                 <form onSubmit={this.handleSubmit.bind(this)}>
                     {theFields}
                     <br/>
-                    <input id="submitButton" type="submit" value="Submit" className="submitButton"/>
+                    <input id="submitButton" type="submit" value="Start" className="submitButton"/>
                 </form>
             </div>
         );

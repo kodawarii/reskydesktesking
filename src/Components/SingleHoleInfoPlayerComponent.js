@@ -15,6 +15,33 @@ class SingleHoleInfoPlayerComponent extends Component{
     render(){
         
         let toRender = this.props.listOfPlayersData.map(player => {
+
+            // Overall PAR-Score
+            let parScoreString 
+            let score = player.parScore - this.props.par;
+            if(score > 0){
+                parScoreString = "+" + score;
+            }
+            else if(score === 0){
+                parScoreString = "E";
+            }
+            else{
+                parScoreString = score;
+            }
+
+            // Current Hole PAR-Score
+            let parScoreString2;
+            let score2 = player.holeDataPAR[this.props.currentHole] - this.props.par;
+            if(score > 0){
+                parScoreString2 = "+" + score;
+            }
+            else if(score === 0){
+                parScoreString2 = "E";
+            }
+            else{
+                parScoreString2 = score;
+            }
+
             return(
                 <tr>
                     <td>
@@ -31,7 +58,10 @@ class SingleHoleInfoPlayerComponent extends Component{
                             </tr>
                             <tr>
                                 <td>
-                                    <span className="currentHoleScore"> {player.score}</span>
+                                    <span className="currentHoleScore"> 
+                                        {player.totalScore}
+                                        <span className="parScore"> ( {parScoreString} ) </span>
+                                    </span>
                                 </td>
                             </tr>
                         </tbody>
@@ -48,9 +78,12 @@ class SingleHoleInfoPlayerComponent extends Component{
                             </tr>
                             <tr>
                                 <td>
-                                    <button onClick={this.handleUpdatePlayers.bind(this, player.name, true)} className="playerScoreButtonMINUS"> - </button>
-                                    &nbsp; <span className="currentHoleScore">{player.holeData[this.props.currentHole]}</span> &nbsp;
-                                    <button onClick={this.handleUpdatePlayers.bind(this, player.name, false)} className="playerScoreButtonPLUS"> + </button> 
+                                    <button onClick={this.handleUpdatePlayers.bind(this, player.name, true)} className="playerScoreButtonMINUS"> - </button> &nbsp;
+                                         <span className="currentHoleScore">
+                                            {player.holeData[this.props.currentHole]}
+                                            <span className="parScore"> ( {parScoreString2} ) </span>
+                                         </span>
+                                    &nbsp; <button onClick={this.handleUpdatePlayers.bind(this, player.name, false)} className="playerScoreButtonPLUS"> + </button> 
                                 </td>
                             </tr>
                         </tbody>
