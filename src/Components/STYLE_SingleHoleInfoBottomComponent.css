@@ -57,4 +57,12 @@
 
 .currentHoleScore{
   font-size: 30px;
+  border: 1px solid #cfcfcf;
+  border-radius: 10px;
+  padding: 4px;
+}
+
+.playerNameText:hover{
+  color: #548afd;
+  text-shadow: 1px 1px 2px #a8e6ff;
 }

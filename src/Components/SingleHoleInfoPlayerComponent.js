@@ -26,7 +26,7 @@ class SingleHoleInfoPlayerComponent extends Component{
                         <tbody>
                             <tr>
                                 <td>
-                                    Total
+                                    <span>Total</span>
                                 </td>
                             </tr>
                             <tr>
