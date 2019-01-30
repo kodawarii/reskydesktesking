@@ -31,7 +31,7 @@ class SingleHoleInfoTopComponent extends Component{
                 <div className="parData">
                         PAR &nbsp; &nbsp;
                         <button onClick={this.handleUpdateParNumber.bind(this, 'minus')} className="ParArrowButtonMINUS"> - </button>
-                        &nbsp; <span class="parNumber"> {par} </span> &nbsp;
+                        &nbsp; <span className="parNumber"> {par} </span> &nbsp;
                         <button onClick={this.handleUpdateParNumber.bind(this, 'add')} className="ParArrowButtonPLUS"> + </button> 
                 </div>
             </div>

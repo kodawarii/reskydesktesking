@@ -44,7 +44,7 @@ class EnterNames extends Component{
             return(
                 <div>
                     Player  {x + 1} &nbsp; &nbsp;
-                    <input type="text" ref={refString} maxlength="6" className="inputField"/>
+                    <input type="text" ref={refString} maxLength="6" className="inputField"/>
                     <br/><br/>
                 </div>
             );

@@ -62,7 +62,7 @@ class HoleNumber extends Component{
             <div>
                 Select Number of Holes:
                  <form> 
-                     <ul classname="listHoleNumber">
+                     <ul className="listHoleNumber">
                          <li>
                             <button onClick={this.handleDefaultHoles.bind(this, '9')} className="holeNumberButton" id="nineHoles"> 9 Holes </button>
                          </li>

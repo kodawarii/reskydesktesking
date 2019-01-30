@@ -81,7 +81,7 @@ class App extends Component {
       />;
     }
     else{
-      alert('Extremely Fatal Error Occured - no page to load');
+      alert('Extremely Fatal Error Occured - There was no page to load');
     }
 
     return (
@@ -90,9 +90,9 @@ class App extends Component {
           <link href="https://fonts.googleapis.com/css?family=Gruppo" rel="stylesheet"/>
           {toRender}
         </header>
+        <br/> <br/>
         <footer> Created By Paul Yoon (kodawarii/ayamachi, SK_DUDevelopment 2019©) </footer>
       </div>
-     
     );
   }
 }

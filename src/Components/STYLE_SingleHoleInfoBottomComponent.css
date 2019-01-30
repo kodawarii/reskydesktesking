@@ -36,6 +36,25 @@
   color: black;
 }
 
+.playerTable{
+  border-collapse: collapse; /* Need this for tr-bottom border */
+}
+
 .playerTable td {
-  padding-right: 20px;
+  padding-right: 16px;  
+  padding-top: 10px;
+  padding-bottom: 8px;
+}
+
+.playerTable tr{
+  border-top:1pt solid #d6d6d6;
+  border-bottom:1pt solid #d6d6d6; /* Need border-collapse in overall table for this to work */
+}
+
+.totalScoreTable td{
+  text-align: center;
+}
+
+.currentHoleScore{
+  font-size: 30px;
 }
