@@ -123,7 +123,7 @@ class App extends Component {
 
         </header>
         <br/> <br/>
-        <footer> Created By Paul Yoon (kodawarii/ayamachi, SK_DUDevelopment 2019©) </footer>
+        <footer> Created By Paul Yoon (kodawarii/ayamachi, SK_DUDevelopment 2019©, Eunbal) </footer>
       </div>
     );
   }
