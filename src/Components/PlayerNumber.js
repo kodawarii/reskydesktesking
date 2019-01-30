@@ -51,6 +51,10 @@ class PlayerNumber extends Component{
         });
     }
 
+    handleExcessPlayers(){
+        this.props.goingToExcessPlayers();
+    }
+
     render(){
         return(
             <div>
@@ -58,7 +62,7 @@ class PlayerNumber extends Component{
                     Select Number of Players:
                     <ul className="listPlayerNumber">
                         <li>
-                            <button onClick={this.handleDefaultPlayers.bind(this, 1)} className="playerNumberButton"> 1 </button>
+                            <button onClick={this.handleDefaultPlayers.bind(this, 1)} className="playerNumberButton1"> 1 </button>
                         </li>
                         <li>
                             <button onClick={this.handleDefaultPlayers.bind(this, 2)} className="playerNumberButton"> 2 </button>
@@ -88,10 +92,10 @@ class PlayerNumber extends Component{
                             <button onClick={this.handleDefaultPlayers.bind(this, 8)} className="playerNumberButton"> 8 </button>
                         </li>
                         <li>
-                            <button onClick={this.handleDefaultPlayers.bind(this, 9)} className="playerNumberButton"> 9 </button>
+                            <button onClick={this.handleExcessPlayers.bind(this)} className="playerNumberButton8plus"> 8+ </button>
                         </li>
                     </ul>
-                </form>
+                </form>                
             </div>
         );
     }
