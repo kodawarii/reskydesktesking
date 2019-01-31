@@ -47,6 +47,12 @@ class SingleHoleInfoPlayerComponent extends Component{
                 parScoreString2 = score2;
             }
 
+            // Getting Player Overall Total-Score
+            let totalOverallScore = 0;
+            for(var i = 0; i <= this.props.currentHole; i++){
+                totalOverallScore += player.holeData[i];
+            }
+
             return(
                 <tr>
                     <td>
@@ -64,7 +70,10 @@ class SingleHoleInfoPlayerComponent extends Component{
                             <tr>
                                 <td>
                                     <span className="currentHoleScore"> 
-                                        {player.totalScore}
+                                        {
+                                        //player.totalScore
+                                        totalOverallScore
+                                        }
                                         <span className="parScore"> ( {parScoreString} ) </span>
                                     </span>
                                 </td>
