@@ -81,46 +81,47 @@ class PlayGameState extends Component{
     }
 
     setPlayerData(){
+        let tempTotalScore = 3 * parseInt(this.state.numberOfHoles);
         for(var player in this.state.players){
             this.state.playersData.push({
                 name: this.state.players[player],
-                totalScore: 0,
-                parScore: 0,
+                rawTotalScore: 0, // keeps track of TOTAL-scores
+                totalScore: tempTotalScore, // keeps track of PAR-OVER-scores
+                rawHoleData: [],
                 holeData: [],
-                holeDataPAR: []
             });
         }
 
         for(var u in this.state.players){
             for(var i = 0; i < this.state.numberOfHoles; i++){
-                this.state.playersData[u].holeData.push(0);
-                this.state.playersData[u].holeDataPAR.push(0);
+                this.state.playersData[u].holeData.push(3);
+                this.state.playersData[u].rawHoleData.push(0);
             }
 
             //console.log("Player Hole Data | Name: " + this.state.playersData[u].name + " HoleData: " + this.state.playersData[u].holeData);
         }
     }
 
-    /* Update Score Data for both Overall-Score and PAR-Over Score :: FOR OVERALL GAME */
     updatePlayerData(player, isGoingDown){
         for(var i in this.state.playersData){
             let singlePlayer = this.state.playersData[i];
+
             if(singlePlayer.name === player){
                 let currentScore = this.state.playersData[i].totalScore;
-                let currentScorePAR = this.state.playersData[i].parScore;
+                let currentRawScore = this.state.playersData[i].rawTotalScore;
+
                 if(isGoingDown){
                     this.state.playersData[i].totalScore = currentScore - 1;
-                    this.state.playersData[i].parScore = currentScorePAR - 1;
+                    this.state.playersData[i].rawTotalScore = currentRawScore - 1;
                 }
                 else{
                     this.state.playersData[i].totalScore = currentScore + 1;
-                    this.state.playersData[i].parScore = currentScorePAR + 1;
+                    this.state.playersData[i].rawTotalScore = currentRawScore + 1;
                 } 
             }
         }
     }
 
-    /* Update Score Data for both Overall-Score and PAR-Over Score :: FOR PARTICULAR HOLE */
     updatePlayerDataForHole(player, isGoingDown){
         for(var i in this.state.playersData){ // finding right player
             let singlePlayer = this.state.playersData[i]
@@ -128,15 +129,15 @@ class PlayGameState extends Component{
 
             if(singlePlayer.name === player){// if we found correct player
                 let currentScoreForThatHole = singlePlayer.holeData[currentHole];
-                let currentPARScoreForThatHole = singlePlayer.holeDataPAR[currentHole];
+                let currentRAWScoreForThatHole = singlePlayer.rawHoleData[currentHole];
 
                 if(isGoingDown){
                     this.state.playersData[i].holeData[currentHole] = currentScoreForThatHole - 1;
-                    this.state.playersData[i].holeDataPAR[currentHole] = currentPARScoreForThatHole - 1;
+                    this.state.playersData[i].rawHoleData[currentHole] = currentRAWScoreForThatHole - 1;
                 }
                 else{
                     this.state.playersData[i].holeData[currentHole] = currentScoreForThatHole + 1;
-                    this.state.playersData[i].holeDataPAR[currentHole] = currentPARScoreForThatHole + 1;
+                    this.state.playersData[i].rawHoleData[currentHole] = currentRAWScoreForThatHole + 1;
                 }
             }
         }
@@ -166,6 +167,8 @@ class PlayGameState extends Component{
                     updateHoleNumber={this.handleUpdateWhichHoleToShow.bind(this)} 
                     updateParNumber={this.handleUpdateParNumber.bind(this)}
                     par={currentHole.par}
+                    holeData={this.state.holesData}
+                    numberOfHoles={this.state.numberOfHoles}
                     />
                 </div>
             );

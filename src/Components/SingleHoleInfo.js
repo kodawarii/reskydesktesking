@@ -21,6 +21,8 @@ class SingleHoleInfo extends Component{
         updatePlayerDataForHole={this.props.updatePlayerDataForHole}
         currentHole={this.props.holeNumber}
         par={this.props.par}
+        holeData={this.props.holeData}
+        numberOfHoles={this.props.numberOfHoles}
         />
 
         return (

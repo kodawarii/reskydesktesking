@@ -17,8 +17,12 @@ class SingleHoleInfoPlayerComponent extends Component{
         let toRender = this.props.listOfPlayersData.map(player => {
 
             // Overall PAR-Score
-            let parScoreString 
-            let score = player.parScore - this.props.par;
+            let parScoreString;
+            let score = 0;
+            for(var i in player.holeData){
+                score += player.holeData[i] - this.props.holeData[i].par;
+            }
+
             if(score > 0){
                 parScoreString = "+" + score;
             }
@@ -31,15 +35,16 @@ class SingleHoleInfoPlayerComponent extends Component{
 
             // Current Hole PAR-Score
             let parScoreString2;
-            let score2 = player.holeDataPAR[this.props.currentHole] - this.props.par;
-            if(score > 0){
-                parScoreString2 = "+" + score;
+            let score2 = player.holeData[this.props.currentHole] - this.props.holeData[this.props.currentHole].par;
+
+            if(score2 > 0){
+                parScoreString2 = "+" + score2;
             }
-            else if(score === 0){
+            else if(score2 === 0){
                 parScoreString2 = "E";
             }
             else{
-                parScoreString2 = score;
+                parScoreString2 = score2;
             }
 
             return(
