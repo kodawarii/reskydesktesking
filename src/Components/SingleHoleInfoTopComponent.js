@@ -22,9 +22,9 @@ class SingleHoleInfoTopComponent extends Component{
             <div>
                 <div>
                     <h1>
-                        <button onClick={this.handleUpdateHoleNumber.bind(this, 'prev')} className="HoleArrowButton"> ⯇ </button>
+                        <button onClick={this.handleUpdateHoleNumber.bind(this, 'prev')} className="HoleArrowButton"> &#9664; </button>
                         &nbsp; Hole {currentHole} &nbsp;
-                        <button onClick={this.handleUpdateHoleNumber.bind(this, 'next')} className="HoleArrowButton"> ⯈ </button> 
+                        <button onClick={this.handleUpdateHoleNumber.bind(this, 'next')} className="HoleArrowButton"> &#9654; </button> 
                     </h1>
                 </div>
                 

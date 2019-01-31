@@ -1,0 +1,14 @@
+.infoBanner2:hover{
+    color: blue;
+}
+
+.infoBanner1{
+    font-size: 16px;
+    border: 1px solid rgb(223, 223, 223);
+    padding: 4px 8px 4px 8px;
+    border-radius: 12px;
+}
+
+.infoBanner1:hover{
+    border: 1px solid rgb(148, 148, 148);
+}

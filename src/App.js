@@ -7,6 +7,7 @@ import EnterNames from './Components/EnterNames';
 import PlayGameState from './Components/PlayGameState';
 import ExcessPlayerPage from './Components/ExcessPlayerPage';
 import OptionSelectionBanner from './Components/OptionSelectionBanner';
+import AreYouSure from './Components/AreYouSure';
 
 // Stylesheets
 import './App.css';
@@ -19,7 +20,9 @@ class App extends Component {
       currentComponent: 'playerNumberState',
       playerNumber: ' ', // if '' empty string, then props assignment doesn't seem to work
       holes: ' ',
-      players: []
+      players: [],
+
+      stack: []
     }
   }
 
@@ -31,6 +34,10 @@ class App extends Component {
 
   handleGoToHoleNumber(){
     this.setState({currentComponent: 'holeNumberState'});
+  }
+
+  handleGoToPlayerNumber(){
+    this.setState({currentComponent: 'playerNumberState'});
   }
 
   /* Getting Number of Holes */
@@ -56,6 +63,14 @@ class App extends Component {
     console.log("List of Players: " + this.state.players);
   }
 
+  handleGoToAreYouSurePage(){
+    this.setState({currentComponent: 'areYouSure'});
+  }
+
+  handleGoToReturnToPlayState(){
+    this.setState({currentComponent: 'resumePlay'});
+  }
+
   render() {
 
     let toRender;
@@ -77,6 +92,9 @@ class App extends Component {
       showBanner = <OptionSelectionBanner
       numberOfHoles = '-'
       numberOfPlayers = {this.state.playerNumber}
+      currentComponent = {this.state.currentComponent}
+      goingToNumberOfHoles={this.handleGoToHoleNumber.bind(this)}
+      goingToNumberOfPlayers={this.handleGoToPlayerNumber.bind(this)}
       />
     }
     else if(this.state.currentComponent === 'EnterNameState'){
@@ -89,6 +107,9 @@ class App extends Component {
       showBanner = <OptionSelectionBanner
       numberOfHoles = {this.state.holes}
       numberOfPlayers = {this.state.playerNumber}
+      currentComponent = {this.state.currentComponent}
+      goingToNumberOfHoles = {this.handleGoToHoleNumber.bind(this)}
+      goingToNumberOfPlayers = {this.handleGoToPlayerNumber.bind(this)}
       />
     }
     else if(this.state.currentComponent === 'playGameState'){
@@ -101,11 +122,28 @@ class App extends Component {
       showBanner = <OptionSelectionBanner
       numberOfHoles = {this.state.holes}
       numberOfPlayers = {this.state.playerNumber}
+      currentComponent = {this.state.currentComponent}
+      goingToNumberOfHoles = {this.handleGoToHoleNumber.bind(this)}
+      goingToNumberOfPlayers = {this.handleGoToPlayerNumber.bind(this)}
+      goingToAreYouSurePage = {this.handleGoToAreYouSurePage.bind(this)}
       />
+
+      this.state.stack.push(toRender);
+      this.state.stack.push(showBanner);
     }
     else if(this.state.currentComponent === 'excessPlayers'){
       toRender = <ExcessPlayerPage
       />
+    }
+    else if(this.state.currentComponent === 'areYouSure'){
+      toRender = <AreYouSure
+      goingToNumberOfPlayers = {this.handleGoToPlayerNumber.bind(this)}
+      goingToReturnToPlayGameState = {this.handleGoToReturnToPlayState.bind(this)}
+      />
+    }
+    else if(this.state.currentComponent == 'resumePlay'){
+      showBanner = this.state.stack[1];
+      toRender = this.state.stack[0]; 
     }
     else{
       alert('Extremely Fatal Error Occured - There was no page to load');
