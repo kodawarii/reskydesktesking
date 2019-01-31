@@ -47,7 +47,7 @@ class SingleHoleInfoPlayerComponent extends Component{
                 parScoreString2 = score2;
             }
 
-            // Getting Player Overall Total-Score
+            // Getting Player Overall Total-Score (Up until the current hole)
             let totalOverallScore = 0;
             for(var i = 0; i <= this.props.currentHole; i++){
                 totalOverallScore += player.holeData[i];
