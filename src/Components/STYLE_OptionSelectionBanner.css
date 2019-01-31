@@ -1,14 +1,57 @@
-.infoBanner2:hover{
-    color: blue;
+.paddingThingy{
+    padding-left: 7px;
+    padding-right: 5px;
 }
 
-.infoBanner1{
+/* For PlayState */
+.infoBannerPLAY{
     font-size: 16px;
     border: 1px solid rgb(223, 223, 223);
     padding: 4px 8px 4px 8px;
     border-radius: 12px;
 }
 
-.infoBanner1:hover{
+.infoBannerPLAY:hover{
     border: 1px solid rgb(148, 148, 148);
+}
+
+/* For Player Number  Screen */
+.infoBannerPLAYERNUMBER{
+    padding: 4px;
+}
+
+/* For Hole Number Screen */
+.infoBannerHOLENUMBERplayer:hover{
+    color: blue;
+}
+
+.infoBannerHOLENUMBER{
+    border: 1px solid rgb(221, 221, 221);
+    border-radius: 10px;
+    padding: 4px;
+}
+
+.infoBannerHOLENUMBER{
+    padding: 4px;
+}
+
+.infoBannerHOLENUMBERplayer{
+    border: 1px solid rgb(221, 221, 221);
+    border-radius: 10px;
+    padding: 4px;
+}
+
+.infoBannerHOLENUMBERplayer{
+    padding: 4px;
+}
+
+/* For Enter Names Screen */
+.infoBannerENTERNAMES:hover{
+    color: blue;
+}
+
+.infoBannerENTERNAMES{
+    border: 1px solid rgb(221, 221, 221);
+    border-radius: 10px;
+    padding: 4px;
 }

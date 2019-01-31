@@ -9,3 +9,9 @@
     font-size: 16px;
     border-radius: 50%;
 }
+
+.resetButtons:hover{
+    border-color: rgb(111, 255, 106);
+    box-shadow: 0 0 12px #baff8c;
+    color: black;
+}

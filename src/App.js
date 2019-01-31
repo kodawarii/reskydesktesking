@@ -82,6 +82,15 @@ class App extends Component {
         goingToNumberOfHoles={this.handleGoToHoleNumber.bind(this)}
         goingToExcessPlayers={this.handleGoToExcessPlayers.bind(this)}
         />;
+
+
+      showBanner = <OptionSelectionBanner
+      numberOfHoles = {this.state.holes}
+      numberOfPlayers = {this.state.playerNumber}
+      currentComponent = {this.state.currentComponent}
+      goingToNumberOfHoles = {this.handleGoToHoleNumber.bind(this)}
+      goingToNumberOfPlayers = {this.handleGoToPlayerNumber.bind(this)}
+      />
     }
     else if(this.state.currentComponent === 'holeNumberState'){
       toRender = <HoleNumber 
