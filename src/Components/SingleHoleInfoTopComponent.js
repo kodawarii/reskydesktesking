@@ -17,16 +17,25 @@ class SingleHoleInfoTopComponent extends Component{
 
         let currentHole = this.props.currentHole + 1;
         let par = this.props.par;
+        let latestHole = this.props.latestHole;
 
         return (
             <div>
                 <div>
-                    <h1>
+                    <span className="headerArea">
                         <button onClick={this.handleUpdateHoleNumber.bind(this, 'prev')} className="HoleArrowButton"> &#9664; </button>
                         &nbsp; Hole {currentHole} &nbsp;
                         <button onClick={this.handleUpdateHoleNumber.bind(this, 'next')} className="HoleArrowButton"> &#9654; </button> 
-                    </h1>
+                    </span>
                 </div>
+
+                <div>
+                    <span className="latestHoleLabel">
+                        Last Played Hole: <b>{latestHole}</b>
+                    </span>
+                </div>
+
+                <br/>
                 
                 <div className="parData">
                         PAR &nbsp; &nbsp;

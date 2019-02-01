@@ -15,7 +15,9 @@ class PlayGameState extends Component{
 
             players: [],
             playersData: [],
-            initialRender: true
+            initialRender: true,
+
+            latestHole: 1
         }
     }
 
@@ -66,6 +68,10 @@ class PlayGameState extends Component{
             else{
                 // Disable '+' button
             }
+        }
+
+        if(this.state.holeToDisplay >= this.state.latestHole){
+            this.state.latestHole = this.state.holeToDisplay + 1;
         }
 
         this.forceUpdate();
@@ -169,6 +175,7 @@ class PlayGameState extends Component{
                     par={currentHole.par}
                     holeData={this.state.holesData}
                     numberOfHoles={this.state.numberOfHoles}
+                    latestHole={this.state.latestHole}
                     />
                 </div>
             );

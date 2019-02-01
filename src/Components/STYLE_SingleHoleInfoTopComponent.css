@@ -9,6 +9,15 @@
   font-size: 36px;
 }
 
+.headerArea{
+  font-size: 50px;
+  font-weight: bold;
+}
+
+.latestHoleLabel{
+  font-size: 16px;
+}
+
 .ParArrowButtonMINUS{
   background-color: #FFFFFF;
   border: 1px solid #bebebe;
