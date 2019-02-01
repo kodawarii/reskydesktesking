@@ -4,7 +4,7 @@ class ExcessPlayerPage extends Component{
     render(){
         return(
             <div>
-                <p> what </p>
+                <p> tell some people to quit cus 8+ is too many people ... </p>
             </div>
         );
     }

@@ -22,3 +22,17 @@ footer{
   font-size: 0.9em;
   padding-bottom: 36px;
 }
+
+.resultsButton{
+  font-size: 0.8em;
+  color: rgb(124, 124, 124);
+  border: 1px solid rgb(230, 230, 230);
+  padding: 4px;
+  border-radius: 8px;
+}
+
+.resultsButton:hover{
+  border-color: rgb(106, 109, 255);
+  box-shadow: 0 0 12px #8cd1ff;
+  color: black;
+}

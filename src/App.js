@@ -8,6 +8,7 @@ import PlayGameState from './Components/PlayGameState';
 import ExcessPlayerPage from './Components/ExcessPlayerPage';
 import OptionSelectionBanner from './Components/OptionSelectionBanner';
 import AreYouSure from './Components/AreYouSure';
+import ResultsPage from './Components/ResultsPage';
 
 // Stylesheets
 import './App.css';
@@ -22,13 +23,15 @@ class App extends Component {
       holes: ' ',
       players: [],
 
+      isFinalHole: false,
+
       stack: []
     }
   }
 
   /* Getting Number of Players */
   handleUpdatePlayerNumber(number){
-    this.state.playerNumber = number;
+    this.setState({playerNumber: number});
     console.log("Number of Players: " + this.state.playerNumber);
   }
 
@@ -42,7 +45,7 @@ class App extends Component {
 
   /* Getting Number of Holes */
   handleUpdateHoleNumber(number){
-    this.state.holes = number;
+    this.setState({holes: number});
     console.log("Number of Holes: " + this.state.holes);
   }
 
@@ -71,10 +74,24 @@ class App extends Component {
     this.setState({currentComponent: 'resumePlay'});
   }
 
+  handleTriggerFinalHole(isFinalHole){
+    if(isFinalHole){
+      this.setState({isFinalHole: true});
+    }
+    else{
+      this.setState({isFinalHole: false});
+    }
+  }
+
+  handleGotToResultsPage(){
+    this.setState({currentComponent: 'resultsPage'});
+  }
+
   render() {
 
     let toRender;
     let showBanner;
+    let finnishAndResults;
 
     if(this.state.currentComponent === 'playerNumberState'){
       toRender = <PlayerNumber 
@@ -90,7 +107,7 @@ class App extends Component {
       currentComponent = {this.state.currentComponent}
       goingToNumberOfHoles = {this.handleGoToHoleNumber.bind(this)}
       goingToNumberOfPlayers = {this.handleGoToPlayerNumber.bind(this)}
-      />
+      />;
     }
     else if(this.state.currentComponent === 'holeNumberState'){
       toRender = <HoleNumber 
@@ -104,14 +121,14 @@ class App extends Component {
       currentComponent = {this.state.currentComponent}
       goingToNumberOfHoles={this.handleGoToHoleNumber.bind(this)}
       goingToNumberOfPlayers={this.handleGoToPlayerNumber.bind(this)}
-      />
+      />;
     }
     else if(this.state.currentComponent === 'EnterNameState'){
       toRender = <EnterNames 
       setListOfPlayers={this.handleSetListOfPlayers.bind(this)}
       numberOfPlayers={this.state.playerNumber}
       goingToPlayGameState={this.handleGoToPlayGameState.bind(this)}
-      />
+      />;
 
       showBanner = <OptionSelectionBanner
       numberOfHoles = {this.state.holes}
@@ -119,13 +136,14 @@ class App extends Component {
       currentComponent = {this.state.currentComponent}
       goingToNumberOfHoles = {this.handleGoToHoleNumber.bind(this)}
       goingToNumberOfPlayers = {this.handleGoToPlayerNumber.bind(this)}
-      />
+      />;
     }
     else if(this.state.currentComponent === 'playGameState'){
       //console.log('Rendering Game State');
       toRender = <PlayGameState
       numberOfHoles = {this.state.holes}
       players = {this.state.players}
+      handleTriggerFinalHole={this.handleTriggerFinalHole.bind(this)}
       />;
 
       showBanner = <OptionSelectionBanner
@@ -135,40 +153,58 @@ class App extends Component {
       goingToNumberOfHoles = {this.handleGoToHoleNumber.bind(this)}
       goingToNumberOfPlayers = {this.handleGoToPlayerNumber.bind(this)}
       goingToAreYouSurePage = {this.handleGoToAreYouSurePage.bind(this)}
-      />
+      />;
 
       this.state.stack.push(toRender);
       this.state.stack.push(showBanner);
     }
     else if(this.state.currentComponent === 'excessPlayers'){
       toRender = <ExcessPlayerPage
-      />
+      />;
     }
     else if(this.state.currentComponent === 'areYouSure'){
       toRender = <AreYouSure
       goingToNumberOfPlayers = {this.handleGoToPlayerNumber.bind(this)}
       goingToReturnToPlayGameState = {this.handleGoToReturnToPlayState.bind(this)}
-      />
+      />;
     }
-    else if(this.state.currentComponent == 'resumePlay'){
+    else if(this.state.currentComponent === 'resumePlay'){
       showBanner = this.state.stack[1];
       toRender = this.state.stack[0]; 
     }
+    else if(this.state.currentComponent === 'resultsPage'){
+      toRender = <ResultsPage
+      
+      />
+    }
     else{
       alert('Extremely Fatal Error Occured - There was no page to load');
+    }
+
+    // If we reach final Hole, then give user option to exit game and show overall results
+    if(this.state.isFinalHole){
+      finnishAndResults = <span className="resultsButton" onClick={this.handleGotToResultsPage.bind(this)}>Finnish and Display Results</span>;
+    }
+    if(this.state.currentComponent == 'resultsPage'){
+      finnishAndResults = '';
     }
 
     return (
       <div className="App">
         <header className="App-header">
           <link href="https://fonts.googleapis.com/css?family=Gruppo" rel="stylesheet"/>
+
           <div className="banner">
             {showBanner}
           </div>
 
           {toRender}
 
+          <br/>
+
+          {finnishAndResults}
         </header>
+
         <br/> <br/>
         <footer> Created By Paul Yoon (kodawarii/ayamachi, SK_DUDevelopment 2019©, Eunbal) </footer>
       </div>
