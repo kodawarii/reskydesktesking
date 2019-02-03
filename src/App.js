@@ -25,7 +25,9 @@ class App extends Component {
 
       isFinalHole: false,
 
-      stack: []
+      stack: [],
+
+      playerData:[]
     }
   }
 
@@ -87,6 +89,10 @@ class App extends Component {
     this.setState({currentComponent: 'resultsPage'});
   }
 
+  handleGettingPlayerData(data){
+    this.setState({playerData: data});
+  }
+
   render() {
 
     let toRender;
@@ -144,6 +150,7 @@ class App extends Component {
       numberOfHoles = {this.state.holes}
       players = {this.state.players}
       handleTriggerFinalHole={this.handleTriggerFinalHole.bind(this)}
+      sendPlayerData={this.handleGettingPlayerData.bind(this)}
       />;
 
       showBanner = <OptionSelectionBanner
@@ -174,7 +181,8 @@ class App extends Component {
     }
     else if(this.state.currentComponent === 'resultsPage'){
       toRender = <ResultsPage
-      
+      data={this.state.playerData}
+      holes={this.state.holes}
       />
     }
     else{
@@ -206,7 +214,7 @@ class App extends Component {
         </header>
 
         <br/> <br/>
-        <footer> Created By Paul Yoon (kodawarii/ayamachi, SK_DUDevelopment 2019©, Eunbal) </footer>
+        <footer> Created By Paul Yoon (kodawarii/ayamachi, S'Eunbal'K_DU`Development 2019©) </footer>
       </div>
     );
   }

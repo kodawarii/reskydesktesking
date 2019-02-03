@@ -70,7 +70,7 @@ class PlayGameState extends Component{
             }
         }
 
-        /* Handling Latest Hole */
+        /* Handling Updating Latest Hole */
         if(this.state.holeToDisplay >= this.state.latestHole){
             this.state.latestHole = this.state.holeToDisplay + 1;
         }
@@ -78,6 +78,7 @@ class PlayGameState extends Component{
         /* Handling to show exit to results */
         if(this.state.holeToDisplay === parseInt(this.state.numberOfHoles) - 1){
             this.props.handleTriggerFinalHole(true);
+            this.props.sendPlayerData(this.state.playersData);
         }
 
         this.forceUpdate();

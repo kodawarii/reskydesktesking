@@ -1,0 +1,15 @@
+.resultsTable{
+    border-collapse: collapse;
+}
+
+.resultsTable tr{
+    border-bottom:1pt solid #d6d6d6;
+}
+
+.resultsTopRow{
+    padding-bottom: 12px;
+}
+
+.firstColumn{
+    padding-right: 12px;
+}

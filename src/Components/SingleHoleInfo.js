@@ -24,7 +24,7 @@ class SingleHoleInfo extends Component{
         par={this.props.par}
         holeData={this.props.holeData}
         numberOfHoles={this.props.numberOfHoles}
-        />
+        />;
 
         return (
             <div>
