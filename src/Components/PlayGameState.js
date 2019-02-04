@@ -55,7 +55,7 @@ class PlayGameState extends Component{
         let currentHoleToDisplay = this.state.holeToDisplay;
         if(direction === 'prev'){
             if(this.state.holeToDisplay > 0){
-                this.state.holeToDisplay = currentHoleToDisplay - 1;
+                this.setState({holeToDisplay: currentHoleToDisplay - 1});
             }
             else{
                 // Disable '-' button
@@ -63,7 +63,7 @@ class PlayGameState extends Component{
         }
         else if(direction === 'next'){
             if(this.state.holeToDisplay < parseInt(this.state.numberOfHoles - 1)){
-                this.state.holeToDisplay = currentHoleToDisplay + 1;
+                this.setState({holeToDisplay: currentHoleToDisplay + 1});
             }
             else{
                 // Disable '+' button
@@ -72,7 +72,7 @@ class PlayGameState extends Component{
 
         /* Handling Updating Latest Hole */
         if(this.state.holeToDisplay >= this.state.latestHole){
-            this.state.latestHole = this.state.holeToDisplay + 1;
+            this.state.latestHole = this.state.holeToDisplay + 1; // Using this.setState() doesn't update instantly
         }
 
         /* Handling to show exit to results */
@@ -159,7 +159,7 @@ class PlayGameState extends Component{
     render(){
 
         if(this.state.initialRender){
-            this.state.numberOfHoles = this.props.numberOfHoles;
+            this.state.numberOfHoles = this.props.numberOfHoles; // Using setState() for these also slows things down
             this.state.players = this.props.players;
             this.setPlayerData();
             this.setHoleData();

@@ -26,14 +26,12 @@ class EnterNames extends Component{
 
     render(){
 
-        // Converting temp to integer
-        let temp;
-        this.state.numberOfPlayers = this.props.numberOfPlayers;
-        temp = parseInt(this.state.numberOfPlayers, 10);
+        let something = this.props.numberOfPlayers;
+        this.state.numberOfPlayers =  something;
 
         // Initializing Array for destroying null array
-        let tempArray = new Array(temp + 1);
-        for(var i = 0; i < temp; i++){
+        let tempArray = [];
+        for(var i = 0; i < parseInt(this.state.numberOfPlayers); i++){
             tempArray.push(i);
         }
 

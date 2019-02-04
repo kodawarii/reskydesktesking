@@ -64,7 +64,7 @@ class App extends Component {
   }
 
   handleSetListOfPlayers(mylist){
-    this.state.players = mylist;
+    this.setState({players: mylist});
     console.log("List of Players: " + this.state.players);
   }
 
@@ -193,7 +193,7 @@ class App extends Component {
     if(this.state.isFinalHole){
       finnishAndResults = <span className="resultsButton" onClick={this.handleGotToResultsPage.bind(this)}>Finnish and Display Results</span>;
     }
-    if(this.state.currentComponent == 'resultsPage'){
+    if(this.state.currentComponent === 'resultsPage'){
       finnishAndResults = '';
     }
 
