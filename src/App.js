@@ -201,6 +201,7 @@ class App extends Component {
       <div className="App">
         <header className="App-header">
           <link href="https://fonts.googleapis.com/css?family=Gruppo" rel="stylesheet"/>
+          <link href="https://fonts.googleapis.com/css?family=Harmattan" rel="stylesheet"/>
 
           <div className="banner">
             {showBanner}

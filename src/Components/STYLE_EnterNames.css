@@ -37,3 +37,10 @@ textarea:focus, input:focus {
     box-shadow: 0 0 12px #baff8c;
     color: black;
 }
+
+.error{
+    color: red;
+    font-size: 16px;
+    font-family: 'Harmattan', sans-serif;
+    padding-left: 3em;
+}
