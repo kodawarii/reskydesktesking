@@ -11,29 +11,38 @@ class EnterNames extends Component{
             listOfPlayers: [],
             numberOfPlayers:'',
 
+            realFields: {},
+
             fields: {},
-            errors: {}
+            errors: {},
+            missingPlayers: []
         }
     }
 
     handleValidation(){
         let fields = this.state.fields;
+        let realFields = this.state.realFields;
         let errors = {};
         let formIsValid = true;
 
-        // fields has player1, player2 etc
+        let fieldIsEmpty = false;
+
+        // fields has player1:qwe, player2:qwe etc
         // So if we dont have a PlayerX, then it means its empty
 
-        console.log("Fields: " + fields);
-        console.log("listOfPlayers: " + this.state.listOfPlayers);
-
-        for(var i in fields){
+        for(var i in realFields){
+            console.log("fields[i]: " + fields[i]); // Paul, Monica, Other, etc ...
+            console.log("i: " + i); // player1, player2, player3 ...
             if(!fields[i]){
                 formIsValid = false;
+                fieldIsEmpty = true;
                 errors[i] = "Cannot be empty";
             }
+            else{
+                fieldIsEmpty = false;
+            }
 
-            if(typeof fields[i] !== 'undefined'){
+            if(typeof fields[i] !== 'undefined' && !fieldIsEmpty){
                 if(!fields[i].match(/^[a-zA-Z]+$/)){
                     formIsValid = false;
                     errors[i] = "You may enter only letters";
@@ -45,10 +54,16 @@ class EnterNames extends Component{
         return formIsValid;
     }
 
-    handleChange(field, e){
+    handleChange(field, e){ // field is player1, player2 etc, and e is ['P', 'Pa', 'Pau', 'Paul']
         let fields = this.state.fields;
-        fields[field] = e.target.value; // For example: 'Paul' would be built as Player1:['P', 'Pa', 'Pau', 'Paul']
+        let realFields = this.state.realFields;
+        
+        fields[field] = e.target.value;
+        realFields[field] = e.target.value;
+
+        console.log(fields[field]);
         this.setState({fields});
+        this.setState({realFields});
     }
     
     handleSubmit(e){
@@ -68,9 +83,7 @@ class EnterNames extends Component{
     }
 
     render(){
-
-        let something = this.props.numberOfPlayers;
-        this.state.numberOfPlayers =  something;
+        this.state.numberOfPlayers =  this.props.numberOfPlayers;
 
         // Initializing Array for destroying null array
         let tempArray = [];
@@ -82,6 +95,7 @@ class EnterNames extends Component{
         let theFields;
         theFields = tempArray.map(x => {
             let refString = 'playerNo' + (x+1);
+            this.state.realFields[refString] = '';
             return(
                 <div>
                     Player  {x + 1} &nbsp; &nbsp;
