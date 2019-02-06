@@ -23,7 +23,7 @@ class ResultsPage extends Component{
     render(){
         let things = this.props.data.map(player => {
             let scores = player.holeData.map(x => {
-                let classColor = this.getColor(x);
+                let classColor = this.getColor(x) + " scoreCell";
                 return(
                     <td className={classColor}>
                         {x}
@@ -31,47 +31,57 @@ class ResultsPage extends Component{
                 );
             });
 
-            return(
-                <tr>
-                    <td className="firstColumn">
-                        {player.name} ( {player.totalScore} )
+            /* Making an excuse-array for making .map function to make hole numbers at top row */
+            let workingArray = [];
+            for(var i = 0; i < parseInt(this.props.holes); i++){
+                workingArray.push(i + 1);
+            }
+
+            /* Making an excuse-array for making .map function to make hole numbers at top row */
+            let topBit = workingArray.map(x => {
+                return(
+                    <td className="scoreCell holeNumberCell">
+                        {x}
                     </td>
+                );
+            });
 
-                    {scores}
-                </tr>
-            );
-        });
-
-        /* Making an excuse-array for making .map function to make hole numbers at top row */
-        let workingArray = [];
-        for(var i = 0; i < parseInt(this.props.holes); i++){
-            workingArray.push(i + 1);
-        }
-
-        /* Making the actual top row displaying the hole number */
-        let topBit = workingArray.map(x => {
             return(
-                <td className="resultsTopRow">
-                    {x}
-                </td>
+               <div className="resultsPage">
+
+                   <span><b> {player.name} ( {player.totalScore} ) </b></span>
+
+                   <table className="resultsTable">
+                       <tbody>
+                           <tr>
+                               {topBit}
+                           </tr>
+                           <tr>
+                               {scores}
+                           </tr>
+                       </tbody>
+                   </table>
+                   
+                   <br/><br/>
+
+               </div>
             );
         });
 
         return(
-            <table className="resultsTable">
-                <tbody>
-
-                    <tr> 
-                        <td className="resultsTopRow firstColumn">
-                            Hole
-                        </td>
-
-                        {topBit}
-                    </tr>
-
-                    {things}
-                </tbody>
-            </table>
+            <div className="resultsTable">
+                <div>
+                    <button className="resultsNavItem"> Save </button> &nbsp; | &nbsp;
+                    <button className="resultsNavItem"> Restart </button> &nbsp; | &nbsp;
+                    <button className="resultsNavItem"> Back </button>
+                </div>
+                
+                <h2>Overall Scores</h2>
+                
+                <br/>
+                
+                {things}
+            </div>
         );
     }
 }

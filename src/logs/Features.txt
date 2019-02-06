@@ -17,9 +17,9 @@ Others:
 <> Reset Game "No" Option
 <> Dark Theme
 <> MyDiscs App feature
-<> Reset button at overall scoreboard
-<> Improved design for overall Scoreboard
-<>
+<semi-DONE> Menu Band at top of overall scoreboard (Reset, Save screenshot, Go Back etc.)
+<DONE> Improved design for overall Scoreboard
+<> 
 <>
 <>
 

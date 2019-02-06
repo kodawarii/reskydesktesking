@@ -1,7 +1,7 @@
 [2/5/2018] [Fixed - 2/7/2018] Form Vaidation does not function correctly;
 [2/7/2018] [Open] Last Played Hole does not show last played hole until component updated;
 [2/7/2018] [Open] After resetting a game, Number of Players and Hole Number data does not actually get reset;
-[] 
+[2/7/2018] [Open] After resetting a game, after reaching final hole, "Finnish and Display Results" button persists to show at all times
 [] 
 [] 
 [] 
