@@ -1,0 +1,29 @@
+Core Functionality:
+<DONE> Enter Number of Holes
+<DONE> Enter Number of Players
+<DONE> Enter Names of Players
+<DONE> Validate Form for entering Names of players
+<DONE> Display a single Hole with Data for that Hole
+<DONE> Be able to scroll across number of holes 
+<DONE> Be able to change PAR value for each hole
+<DONE> Display Players Overall Score and Current Hole Score for a hole
+<DONE> Be able to update players Overall score on each hole 
+<DONE> Be able to update players current hole score on each hole
+<DONE> View a overall scoreboard
+<DONE> Be able to Reset Game
+
+Others:
+<> 8 or more players input
+<> Reset Game "No" Option
+<> Dark Theme
+<> MyDiscs App feature
+<> Reset button at overall scoreboard
+<> Improved design for overall Scoreboard
+<>
+<>
+<>
+
+
+Testing:
+<> Selenium + SpecFlow Testing Framework
+<>
