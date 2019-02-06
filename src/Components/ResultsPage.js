@@ -5,11 +5,27 @@ import './STYLE_Results.css'
 
 class ResultsPage extends Component{
 
+    getColor(x){
+        if(x === 1){
+            return "gold";
+        }
+        else if(x === 2){
+            return "green";
+        }
+        else if(x === 4){
+            return "blue";
+        }
+        else if( x >= 5){
+            return "red";
+        }
+    }
+
     render(){
         let things = this.props.data.map(player => {
             let scores = player.holeData.map(x => {
+                let classColor = this.getColor(x);
                 return(
-                    <td>
+                    <td className={classColor}>
                         {x}
                     </td>
                 );
@@ -52,7 +68,6 @@ class ResultsPage extends Component{
 
                         {topBit}
                     </tr>
-
 
                     {things}
                 </tbody>

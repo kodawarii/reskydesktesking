@@ -2,8 +2,13 @@
     border-collapse: collapse;
 }
 
+.resultsTable td{
+    padding-right: 0.3em;
+    padding-left: 0.3em;
+}
+
 .resultsTable tr{
-    border-bottom:1pt solid #d6d6d6;
+    border-bottom: 1pt solid #d6d6d6;
 }
 
 .resultsTopRow{
@@ -12,4 +17,21 @@
 
 .firstColumn{
     padding-right: 12px;
+}
+
+.gold{
+    background-color: rgb(255, 253, 117);
+}
+
+.green{
+    background-color: rgb(117, 255, 135);
+}
+
+.blue{
+    background-color: rgb(132, 216, 255);
+}
+
+.red{
+    background-color: rgb(255, 56, 56);
+    color: white;
 }
