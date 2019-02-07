@@ -55,7 +55,7 @@ class PlayGameState extends Component{
         let currentHoleToDisplay = this.state.holeToDisplay;
         if(direction === 'prev'){
             if(this.state.holeToDisplay > 0){
-                this.setState({holeToDisplay: currentHoleToDisplay - 1});
+                this.state.holeToDisplay = currentHoleToDisplay - 1;
             }
             else{
                 // Disable '-' button
@@ -63,7 +63,7 @@ class PlayGameState extends Component{
         }
         else if(direction === 'next'){
             if(this.state.holeToDisplay < parseInt(this.state.numberOfHoles - 1)){
-                this.setState({holeToDisplay: currentHoleToDisplay + 1});
+                this.state.holeToDisplay = currentHoleToDisplay + 1;
             }
             else{
                 // Disable '+' button

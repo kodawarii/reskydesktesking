@@ -19,8 +19,8 @@ Others:
 <> MyDiscs App feature
 <semi-DONE> Menu Band at top of overall scoreboard (Reset, Save screenshot, Go Back etc.)
 <DONE> Improved design for overall Scoreboard
-<> 
-<>
+<> List of holes instead of scrolling
+<> Overall Scoreboard during the game instead of it being at the end
 <>
 
 
