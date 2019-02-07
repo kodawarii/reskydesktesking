@@ -13,22 +13,24 @@ import ResultsPage from './Components/ResultsPage';
 // Stylesheets
 import './App.css';
 
+const initialState = {
+  currentComponent: 'playerNumberState',
+  playerNumber: ' ', // if '' empty string, then props assignment doesn't seem to work
+  holes: ' ',
+  players: [],
+
+  isFinalHole: false,
+
+  stack: [],
+
+  playerData:[]
+};
+
 class App extends Component {
 
   constructor(){
     super();
-    this.state = {
-      currentComponent: 'playerNumberState',
-      playerNumber: ' ', // if '' empty string, then props assignment doesn't seem to work
-      holes: ' ',
-      players: [],
-
-      isFinalHole: false,
-
-      stack: [],
-
-      playerData:[]
-    }
+    this.state = initialState;
   }
 
   /* Getting Number of Players */
@@ -76,6 +78,11 @@ class App extends Component {
     this.setState({currentComponent: 'resumePlay'});
   }
 
+  handleResetGame(){
+    this.setState({initialState});
+    this.setState({currentComponent: 'playerNumberState'});
+  }
+
   handleTriggerFinalHole(isFinalHole){
     if(isFinalHole){
       this.setState({isFinalHole: true});
@@ -100,20 +107,19 @@ class App extends Component {
     let finnishAndResults;
 
     if(this.state.currentComponent === 'playerNumberState'){
-      toRender = <PlayerNumber 
+        toRender = <PlayerNumber 
         numberOfPlayers={this.handleUpdatePlayerNumber.bind(this)}
         goingToNumberOfHoles={this.handleGoToHoleNumber.bind(this)}
         goingToExcessPlayers={this.handleGoToExcessPlayers.bind(this)}
         />;
 
-
-      showBanner = <OptionSelectionBanner
-      numberOfHoles = {this.state.holes}
-      numberOfPlayers = {this.state.playerNumber}
-      currentComponent = {this.state.currentComponent}
-      goingToNumberOfHoles = {this.handleGoToHoleNumber.bind(this)}
-      goingToNumberOfPlayers = {this.handleGoToPlayerNumber.bind(this)}
-      />;
+        showBanner = <OptionSelectionBanner
+        numberOfHoles = {this.state.holes}
+        numberOfPlayers = {this.state.playerNumber}
+        currentComponent = {this.state.currentComponent}
+        goingToNumberOfHoles = {this.handleGoToHoleNumber.bind(this)}
+        goingToNumberOfPlayers = {this.handleGoToPlayerNumber.bind(this)}
+        />;
     }
     else if(this.state.currentComponent === 'holeNumberState'){
       toRender = <HoleNumber 
@@ -145,7 +151,6 @@ class App extends Component {
       />;
     }
     else if(this.state.currentComponent === 'playGameState'){
-      //console.log('Rendering Game State');
       toRender = <PlayGameState
       numberOfHoles = {this.state.holes}
       players = {this.state.players}
@@ -171,7 +176,7 @@ class App extends Component {
     }
     else if(this.state.currentComponent === 'areYouSure'){
       toRender = <AreYouSure
-      goingToNumberOfPlayers = {this.handleGoToPlayerNumber.bind(this)}
+      goingToResetGame = {this.handleResetGame.bind(this)}
       goingToReturnToPlayGameState = {this.handleGoToReturnToPlayState.bind(this)}
       />;
     }
@@ -190,10 +195,10 @@ class App extends Component {
     }
 
     // If we reach final Hole, then give user option to exit game and show overall results
-    if(this.state.isFinalHole){
+    if(this.state.isFinalHole && this.state.currentComponent === 'playGameState'){
       finnishAndResults = <span className="resultsButton" onClick={this.handleGotToResultsPage.bind(this)}>Finnish and Display Results</span>;
     }
-    if(this.state.currentComponent === 'resultsPage'){
+    else{
       finnishAndResults = '';
     }
 

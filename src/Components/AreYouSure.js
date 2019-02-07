@@ -12,9 +12,9 @@ class AreYouSure extends Component{
             <div>
                 <p>This will Reset <u>Everything</u>, Are you sure?</p>
                 <ul>
-                    <li><button onClick={this.props.goingToNumberOfPlayers} className="resetButtons"> Yes </button></li>
+                    <li><button onClick={this.props.goingToResetGame} className="resetButtons"> Yes </button></li>
                     <li> or </li>
-                    <li><button onClick={this.props.goingToNumberOfPlayers} className="resetButtons"> Yes </button></li>
+                    <li><button onClick={this.props.goingToResetGame} className="resetButtons"> Yes </button></li>
                     <li>(This is no Joke, I dunno how to code 'No' Option, so you're fucked)</li>
                 </ul>
             </div>

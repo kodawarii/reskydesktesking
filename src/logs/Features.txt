@@ -21,8 +21,14 @@ Others:
 <DONE> Improved design for overall Scoreboard
 <> List of holes instead of scrolling
 <> Overall Scoreboard during the game instead of it being at the end
-<>
-
+<> Disable Buttons when extremes reached e.g. score 0, hole 1, etc.
+<> 
+<> 
+<> 
+<> 
+<> 
+<> 
+<> 
 
 Testing:
 <> Selenium + SpecFlow Testing Framework

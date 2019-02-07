@@ -3,22 +3,24 @@ import React, {Component} from 'react';
 // Components
 import SingleHoleInfo from './SingleHoleInfo';
 
+const initialState = {
+    numberOfHoles: '',
+    holesData: [],
+    holeToDisplay: 0,
+
+    players: [],
+    playersData: [],
+    initialRender: true,
+
+    latestHole: 1    
+};
+
 class PlayGameState extends Component{
 
     constructor(){
         super();
 
-        this.state = {
-            numberOfHoles: '',
-            holesData: [],
-            holeToDisplay: 0,
-
-            players: [],
-            playersData: [],
-            initialRender: true,
-
-            latestHole: 1
-        }
+        this.state = initialState;
     }
 
     handleUpdateParNumber(direction){
