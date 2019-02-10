@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.6.3/workbox-sw.js");
 
 importScripts(
-  "/reskydesktesking/precache-manifest.bdc4d5488ae557deb40b667d38df111e.js"
+  "/reskydesktesking/precache-manifest.fc8e60c2d6f3d202eeeb73cdba8472da.js"
 );
 
 workbox.clientsClaim();
