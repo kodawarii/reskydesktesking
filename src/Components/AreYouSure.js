@@ -14,8 +14,7 @@ class AreYouSure extends Component{
                 <ul>
                     <li><button onClick={this.props.goingToResetGame} className="resetButtons"> Yes </button></li>
                     <li> or </li>
-                    <li><button onClick={this.props.goingToResetGame} className="resetButtons"> Yes </button></li>
-                    <li>(This is no Joke, I dunno how to code 'No' Option, so you're fucked)</li>
+                    <li><button onClick={this.props.lol} className="resetButtons"> No </button></li>
                 </ul>
             </div>
         );

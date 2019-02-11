@@ -46,10 +46,29 @@ class ResultsPage extends Component{
                 );
             });
 
+            let parOverScore;
+            let className;
+            if(player.rawTotalScore === 0){
+                parOverScore = "E";
+                className="blueTotal";
+            }
+            else if(player.rawTotalScore > 0){
+                parOverScore = "+" + player.rawTotalScore;
+                className="redTotal";
+            }
+            else{
+                parOverScore = player.rawTotalScore;
+                className="greenTotal";
+            }
+
             return(
                <div className="resultsPage">
 
-                   <span><b> {player.name} ( {player.totalScore} ) </b></span>
+                   <span> 
+                        <b> {player.name} &nbsp; </b>
+                        <span className=""> {player.totalScore} </span>
+                        <span className="overScoreNumber"> ( <span className={className}> {parOverScore} </span> ) </span>
+                    </span>
 
                    <table className="resultsTable">
                        <tbody>
