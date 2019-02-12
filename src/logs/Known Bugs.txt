@@ -6,7 +6,7 @@
 [2/12/2018] [OPEN] After resetting a game, going to PlayState, and finnishing game, fucks up the results table
 [2/7/2018] [Fixed] After resetting a game, after reaching final hole, "Finnish and Display Results" button persists to show at all times;
 [2/12/2018] [Open] disabled Minus Button on single player still lights up when hovered over;
-[2/12/2019] [OPEN] If you change just the par values and not the player's scores, the overall scores dont actually get updated to be shown on results page;
+[2/12/2019] [Fixed - 2/13/2018] If you change just the par values and not the player's scores, the overall scores dont actually get updated to be shown on results page;
 [] 
 [] 
 [] 

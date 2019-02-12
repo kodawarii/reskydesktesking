@@ -23,7 +23,8 @@ const initialState = {
 
   stack: [],
 
-  playerData:[]
+  playerData:[],
+  holesData: []
 };
 
 class App extends Component {
@@ -100,6 +101,14 @@ class App extends Component {
     this.setState({playerData: data});
   }
 
+  handleSetHolesData(data){
+    this.setState({holesData: data});
+  }
+
+  handleUpdateHolesData(data){
+    this.setState({holesData: data});
+  }
+
   render() {
 
     let toRender;
@@ -156,6 +165,8 @@ class App extends Component {
       players = {this.state.players}
       handleTriggerFinalHole={this.handleTriggerFinalHole.bind(this)}
       sendPlayerData={this.handleGettingPlayerData.bind(this)}
+      handleSetHoleData={this.handleSetHolesData.bind(this)}
+      handleUpdateHolesData={this.handleUpdateHolesData.bind(this)}
       />;
 
       showBanner = <OptionSelectionBanner
@@ -188,6 +199,7 @@ class App extends Component {
       toRender = <ResultsPage
       data={this.state.playerData}
       holes={this.state.holes}
+      holesData={this.state.holesData}
       />
     }
     else{

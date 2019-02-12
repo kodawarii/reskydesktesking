@@ -46,6 +46,21 @@ class PlayGameState extends Component{
             }
         }
 
+        /* Need to update each Player's PAR-over score if we update PAR data for that hole */
+        for(var player in this.state.playersData){
+            let currentScore = this.state.playersData[player].totalScore;
+            let currentRawScore = this.state.playersData[player].parScore;
+
+            if(direction === 'minus'){
+                this.state.playersData[player].parScore = currentRawScore + 1;
+            }
+            else{
+                this.state.playersData[player].parScore = currentRawScore - 1;
+            }
+        }
+
+        this.props.handleUpdateHolesData(this.state.holesData);
+
         //console.log("Current Hole to Display: " + (this.state.holeToDisplay + 1));
         //console.log("Got told to display: " + (this.state.holesData[currentHoleToDisplay].holeNumber + 1));
         //console.log("Updated Par: " + this.state.holesData[currentHoleToDisplay].par);
@@ -93,6 +108,8 @@ class PlayGameState extends Component{
                 par: 3,
             });
         }
+
+        this.props.handleSetHoleData(this.state.holesData);
     }
 
     setPlayerData(){
@@ -100,8 +117,8 @@ class PlayGameState extends Component{
         for(var player in this.state.players){
             this.state.playersData.push({
                 name: this.state.players[player],
-                rawTotalScore: 0, // keeps track of TOTAL-scores
-                totalScore: tempTotalScore, // keeps track of PAR-OVER-scores
+                parScore: 0, // keeps track of PAR-over-scores
+                totalScore: tempTotalScore, // keeps track of Total-scores
                 rawHoleData: [],
                 holeData: [],
             });
@@ -123,15 +140,15 @@ class PlayGameState extends Component{
 
             if(singlePlayer.name === player){
                 let currentScore = this.state.playersData[i].totalScore;
-                let currentRawScore = this.state.playersData[i].rawTotalScore;
+                let currentRawScore = this.state.playersData[i].parScore;
 
                 if(isGoingDown){
                     this.state.playersData[i].totalScore = currentScore - 1;
-                    this.state.playersData[i].rawTotalScore = currentRawScore - 1;
+                    this.state.playersData[i].parScore = currentRawScore - 1;
                 }
                 else{
                     this.state.playersData[i].totalScore = currentScore + 1;
-                    this.state.playersData[i].rawTotalScore = currentRawScore + 1;
+                    this.state.playersData[i].parScore = currentRawScore + 1;
                 } 
             }
         }

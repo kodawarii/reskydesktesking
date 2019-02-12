@@ -48,22 +48,21 @@ class ResultsPage extends Component{
 
             let parOverScore;
             let className;
-            if(player.rawTotalScore === 0){
+            if(player.parScore === 0){
                 parOverScore = "E";
                 className="blueTotal";
             }
-            else if(player.rawTotalScore > 0){
-                parOverScore = "+" + player.rawTotalScore;
+            else if(player.parScore > 0){
+                parOverScore = "+" + player.parScore;
                 className="redTotal";
             }
             else{
-                parOverScore = player.rawTotalScore;
+                parOverScore = player.parScore;
                 className="greenTotal";
             }
 
             return(
                <div className="resultsPage">
-
                    <span> 
                         <b> {player.name} &nbsp; </b>
                         <span className=""> {player.totalScore} </span>
@@ -82,10 +81,14 @@ class ResultsPage extends Component{
                    </table>
                    
                    <br/><br/>
-
                </div>
             );
         });
+
+        let totalPAR = 0;
+        for(var i in this.props.holesData){
+            totalPAR += parseInt(this.props.holesData[i].par);
+        }
 
         return(
             <div className="resultsTable">
@@ -96,6 +99,7 @@ class ResultsPage extends Component{
                 </div>
                 
                 <h2>Overall Scores</h2>
+                <h4> For PAR: {totalPAR} </h4>
                 
                 <br/>
                 
