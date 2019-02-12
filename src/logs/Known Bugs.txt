@@ -3,8 +3,28 @@
 [2/11/2018] [Fixed - 2/11/2018 - latest bug fix was not deployed to PROD] Bug still present where last hole played doesn't show properly
 [2/7/2018] [Open] After resetting a game, Number of Players and Hole Number data does not actually get reset, and if at last hole, result button persists to show;
 [2/7/2018] [Open] After resetting a game, after reaching final hole, "Finnish and Display Results" button persists to show at all times
+[2/12/2018] [Open] disabled Minus Button on single player still lights up when hovered over 
 [] 
 [] 
 [] 
 [] 
 [] 
+[] 
+[] 
+[] 
+[] 
+[] 
+[] 
+[] 
+[] 
+[] 
+[] 
+[] 
+[] 
+[] 
+[] 
+[] 
+[] 
+[] 
+[] 
+
