@@ -191,7 +191,7 @@ class App extends Component {
       />
     }
     else{
-      alert('Extremely Fatal Error Occured - There was no page to load');
+      alert('Extremely Fatal Error Occured - There was no component to load');
     }
 
     // If we reach final Hole, then give user option to exit game and show overall results

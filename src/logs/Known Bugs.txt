@@ -1,10 +1,12 @@
 [2/5/2018] [Fixed - 2/7/2018] Form Vaidation does not function correctly;
-[2/7/2018] [Fixed - 2/7/2018] Last Played Hole does not show last played hole until component updated; Need to mutate State directly instead of using this.setState
-[2/11/2018] [Fixed - 2/11/2018 - latest bug fix was not deployed to PROD] Bug still present where last hole played doesn't show properly
-[2/7/2018] [Open] After resetting a game, Number of Players and Hole Number data does not actually get reset, and if at last hole, result button persists to show;
-[2/7/2018] [Open] After resetting a game, after reaching final hole, "Finnish and Display Results" button persists to show at all times
-[2/12/2018] [Open] disabled Minus Button on single player still lights up when hovered over 
-[] 
+[2/7/2018] [Fixed - 2/7/2018] Last Played Hole does not show last played hole until component updated; Need to mutate State directly instead of using this.setState;
+[2/11/2018] [Fixed - 2/11/2018 - latest bug fix was not deployed to PROD] Bug still present where last hole played doesn't show properly;
+[2/7/2018] [Open] After resetting a game, Number of Players and Hole Number data does not actually get reset;
+[2/12/2018] [OPEN] After resetting a game, going to PlayState, old data is still there and new data does not get saved
+[2/12/2018] [OPEN] After resetting a game, going to PlayState, and finnishing game, fucks up the results table
+[2/7/2018] [Fixed] After resetting a game, after reaching final hole, "Finnish and Display Results" button persists to show at all times;
+[2/12/2018] [Open] disabled Minus Button on single player still lights up when hovered over;
+[2/12/2019] [OPEN] If you change just the par values and not the player's scores, the overall scores dont actually get updated to be shown on results page;
 [] 
 [] 
 [] 
