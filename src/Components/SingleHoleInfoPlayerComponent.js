@@ -53,6 +53,14 @@ class SingleHoleInfoPlayerComponent extends Component{
                 totalOverallScore += player.holeData[u];
             }
 
+            // Setting ClassNames for button disabling
+            let currentHoleScore = player.holeData[this.props.currentHole];
+            let scoreButtonLeft = "playerScoreButtonMINUS";
+
+            if(currentHoleScore === 1){
+                scoreButtonLeft += " disableMinusButton";
+            }
+
             return(
                 <tr>
                     <td>
@@ -92,9 +100,9 @@ class SingleHoleInfoPlayerComponent extends Component{
                             </tr>
                             <tr>
                                 <td>
-                                    <button onClick={this.handleUpdatePlayers.bind(this, player.name, true)} className="playerScoreButtonMINUS"> - </button> &nbsp;
+                                    <button onClick={this.handleUpdatePlayers.bind(this, player.name, true)} className={scoreButtonLeft}> - </button> &nbsp;
                                          <span className="currentHoleScore">
-                                            {player.holeData[this.props.currentHole]}
+                                            {currentHoleScore}
                                             <span className="parScore"> ( {parScoreString2} ) </span>
                                          </span>
                                     &nbsp; <button onClick={this.handleUpdatePlayers.bind(this, player.name, false)} className="playerScoreButtonPLUS"> + </button> 

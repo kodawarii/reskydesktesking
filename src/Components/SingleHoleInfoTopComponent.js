@@ -19,13 +19,31 @@ class SingleHoleInfoTopComponent extends Component{
         let par = this.props.par;
         let latestHole = this.props.latestHole;
 
+        let leftHoleArrowButtonClassName = "HoleArrowButton";
+        let rightHoleArrowButtonClassname = "HoleArrowButton";
+
+        let leftPARButtonMINUS = "ParArrowButtonMINUS";
+        let rightPARButtonPLUS = "ParArrowButtonPLUS";
+
+        if(currentHole === 1){
+            leftHoleArrowButtonClassName += " disableLeftHoleArrowButton";
+        }
+
+        if(currentHole === this.props.holeData.length ){
+            rightHoleArrowButtonClassname += " disableRightHoleArrowButton";
+        }
+
+        if(par === 1){
+            leftPARButtonMINUS += " disableLeftPARButton";
+        }
+
         return (
             <div>
                 <div>
                     <span className="headerArea">
-                        <button onClick={this.handleUpdateHoleNumber.bind(this, 'prev')} className="HoleArrowButton"> &#9664; </button>
+                        <button onClick={this.handleUpdateHoleNumber.bind(this, 'prev')} className={leftHoleArrowButtonClassName}> &#9664; </button>
                         &nbsp; Hole {currentHole} &nbsp;
-                        <button onClick={this.handleUpdateHoleNumber.bind(this, 'next')} className="HoleArrowButton"> &#9654; </button> 
+                        <button onClick={this.handleUpdateHoleNumber.bind(this, 'next')} className={rightHoleArrowButtonClassname}> &#9654; </button> 
                     </span>
                 </div>
 
@@ -39,9 +57,9 @@ class SingleHoleInfoTopComponent extends Component{
                 
                 <div className="parData">
                         PAR &nbsp; &nbsp;
-                        <button onClick={this.handleUpdateParNumber.bind(this, 'minus')} className="ParArrowButtonMINUS"> - </button>
+                        <button onClick={this.handleUpdateParNumber.bind(this, 'minus')} className={leftPARButtonMINUS}> - </button>
                         &nbsp; <span className="parNumber"> {par} </span> &nbsp;
-                        <button onClick={this.handleUpdateParNumber.bind(this, 'add')} className="ParArrowButtonPLUS"> + </button> 
+                        <button onClick={this.handleUpdateParNumber.bind(this, 'add')} className={rightPARButtonPLUS}> + </button> 
                 </div>
             </div>
         );

@@ -36,6 +36,16 @@
   color: black;
 }
 
+.disableMinusButton{
+  color: #f1f1f1;
+  border: 1px solid #f1f1f1;
+}
+
+.disableMinusButton:hover{
+  color: #f1f1f1;
+  border: 1px solid #f1f1f1;
+}
+
 .playerTable{
   border-collapse: collapse; /* Need this for tr-bottom border */
 }

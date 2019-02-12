@@ -33,7 +33,7 @@ class PlayGameState extends Component{
         for(var i in this.state.holesData){ 
             if(this.state.holesData[i].holeNumber === currentHoleToDisplay){
                 if(direction === 'minus'){
-                    if(currentHoleParNumber > 0){
+                    if(currentHoleParNumber > 1){
                         this.state.holesData[i].par = currentHoleParNumber - 1;
                     }
                     else{
@@ -147,8 +147,13 @@ class PlayGameState extends Component{
                 let currentRAWScoreForThatHole = singlePlayer.rawHoleData[currentHole];
 
                 if(isGoingDown){
-                    this.state.playersData[i].holeData[currentHole] = currentScoreForThatHole - 1;
-                    this.state.playersData[i].rawHoleData[currentHole] = currentRAWScoreForThatHole - 1;
+                    if(currentScoreForThatHole > 1){
+                        this.state.playersData[i].holeData[currentHole] = currentScoreForThatHole - 1;
+                        this.state.playersData[i].rawHoleData[currentHole] = currentRAWScoreForThatHole - 1;
+                    }
+                    else{
+                        // Disable '-' Button for that player
+                    }
                 }
                 else{
                     this.state.playersData[i].holeData[currentHole] = currentScoreForThatHole + 1;
