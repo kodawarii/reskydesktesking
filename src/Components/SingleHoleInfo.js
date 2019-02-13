@@ -15,6 +15,8 @@ class SingleHoleInfo extends Component{
         par={this.props.par}
         latestHole={this.props.latestHole}
         holeData={this.props.holeData}
+        numberOfHoles={this.props.numberOfHoles}
+        changeWhichHoleToShow={this.props.changeWhichHoleToShow.bind(this)}
         />;
 
         let playerComponent = <SingleHoleInfoPlayerComponent 

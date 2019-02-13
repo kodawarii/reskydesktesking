@@ -101,6 +101,17 @@ class PlayGameState extends Component{
         this.forceUpdate();
     }
 
+    changeWhichHoleToShow(hole){
+        this.state.holeToDisplay = parseInt(hole - 1);
+        
+        /* Handling Updating Latest Hole */
+        if(this.state.holeToDisplay >= this.state.latestHole){
+            this.state.latestHole = this.state.holeToDisplay + 1; // Using this.setState() doesn't update instantly
+        }
+
+        this.forceUpdate();
+    }
+
     setHoleData(){
         for(var i = 0; i < parseInt(this.state.numberOfHoles); i++){
             this.state.holesData.push({
@@ -205,8 +216,9 @@ class PlayGameState extends Component{
                     updateParNumber={this.handleUpdateParNumber.bind(this)}
                     par={currentHole.par}
                     holeData={this.state.holesData}
-                    numberOfHoles={this.state.numberOfHoles}
+                    numberOfHoles={this.props.numberOfHoles}
                     latestHole={this.state.latestHole}
+                    changeWhichHoleToShow={this.changeWhichHoleToShow.bind(this)}
                     />
                 </div>
             );

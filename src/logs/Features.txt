@@ -19,12 +19,12 @@ Others:
 <> MyDiscs App feature
 <semi-DONE> Menu Band at top of overall scoreboard (Reset, Save screenshot, Go Back etc.)
 <DONE> Improved design for overall Scoreboard
-<> List of holes instead of scrolling
-<> Overall Scoreboard during the game instead of it being at the end
+<DONE> List of holes instead of scrolling
+<> Overall Scoreboard during the game instead of it being at the end (Pop-Up style)
 <DONE - through CSS> Disable Buttons when extremes reached e.g. score 0, hole 1, etc.
 <> Form Validation where form checks for duplicate names
 <> Voice input feature
-<> 
+<> "Hole Complete" feature where list of holes shows which holes are complete - because hole list destroys purpose of latest hole played
 <> 
 <> 
 <> 

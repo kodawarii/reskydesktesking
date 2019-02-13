@@ -63,9 +63,9 @@ class ResultsPage extends Component{
 
             return(
                <div className="resultsPage">
-                   <span> 
-                        <b> {player.name} &nbsp; </b>
-                        <span className=""> {player.totalScore} </span>
+                    <span className="playerName"><b> {player.name} </b></span>  &nbsp;
+                    <span className="scoreContainer">
+                        <span className="totalscorethingy"> {player.totalScore} </span> 
                         <span className="overScoreNumber"> ( <span className={className}> {parOverScore} </span> ) </span>
                     </span>
 

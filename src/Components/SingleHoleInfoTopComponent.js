@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
 
+// Components
+import HoleBanner from './HoleBanner';
+
 // Stylesheets
 import './STYLE_SingleHoleInfoTopComponent.css';
 
@@ -29,7 +32,7 @@ class SingleHoleInfoTopComponent extends Component{
             leftHoleArrowButtonClassName += " disableLeftHoleArrowButton";
         }
 
-        if(currentHole === this.props.holeData.length ){
+        if(currentHole === this.props.holeData.length){
             rightHoleArrowButtonClassname += " disableRightHoleArrowButton";
         }
 
@@ -39,6 +42,12 @@ class SingleHoleInfoTopComponent extends Component{
 
         return (
             <div>
+                <HoleBanner
+                numberOfHoles={this.props.numberOfHoles}
+                changeWhichHoleToShow={this.props.changeWhichHoleToShow.bind(this)}
+                currentHole={this.props.currentHole}
+                />
+
                 <div>
                     <span className="headerArea">
                         <button onClick={this.handleUpdateHoleNumber.bind(this, 'prev')} className={leftHoleArrowButtonClassName}> &#9664; </button>

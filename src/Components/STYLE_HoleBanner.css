@@ -1,0 +1,15 @@
+.holeBannerNumberCell{
+    padding: 0px 10px 0px 8px;
+    color: rgb(92, 92, 92);
+}
+
+.holeBannerContainer{
+    border: 1px solid rgb(226, 226, 226);
+    border-radius: 12px;
+}
+
+.greyOutThisHole{
+    font-weight: bold;
+    border: 1px solid rgb(207, 207, 207);
+    border-radius: 10px;
+}
