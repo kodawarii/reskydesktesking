@@ -194,7 +194,7 @@ class PlayGameState extends Component{
 
     completeHole(){
         this.changeWhichHoleToShow(this.state.holeToDisplay + 2);
-        this.state.holesData[this.state.holeToDisplay].status = true;
+        this.state.holesData[this.state.holeToDisplay - 1].status = true;
 
         /* Handling to show exit to results */
         if(this.state.holeToDisplay === parseInt(this.state.numberOfHoles) - 1){
