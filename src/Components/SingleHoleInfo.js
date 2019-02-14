@@ -30,7 +30,7 @@ class SingleHoleInfo extends Component{
         />;
 
         let finnishButton;
-        if(parseInt(this.props.holesNumber) !== this.props.numberOfHoles - 1){
+        if(this.props.holeNumber !== (parseInt(this.props.numberOfHoles) - 1) && !this.props.holeData[this.props.holeNumber].status){
             finnishButton = <button onClick={this.props.completeHole.bind(this)}>Complete Hole</button>;
         }
         else{
