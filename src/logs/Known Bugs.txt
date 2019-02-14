@@ -8,7 +8,7 @@
 [2/12/2018] [Open (Minor)] disabled Minus Button on single player still lights up when hovered over;
 [2/12/2019] [Fixed - 2/13/2018] If you change just the par values and not the player's scores, the overall scores dont actually get updated to be shown on results page;
 [2/14/2019] [OPEN] If you choose 18 holes, hole-number-nav-banner thing makes the entire playerBottomComponent align to left for some reason
-[] 
+[2/14/2019] [OPEN] Start New Game, then Click straight onto hole-18, "finnish-results" button doesnt show 
 [] 
 [] 
 [] 
