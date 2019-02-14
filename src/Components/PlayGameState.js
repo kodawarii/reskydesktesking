@@ -117,6 +117,7 @@ class PlayGameState extends Component{
             this.state.holesData.push({
                 holeNumber: i,
                 par: 3,
+                status: false,
             });
         }
 
@@ -191,6 +192,17 @@ class PlayGameState extends Component{
         }
     }
 
+    completeHole(){
+        this.changeWhichHoleToShow(this.state.holeToDisplay + 2);
+        this.state.holesData[this.state.holeToDisplay].status = true;
+
+        /* Handling to show exit to results */
+        if(this.state.holeToDisplay === parseInt(this.state.numberOfHoles) - 1){
+            this.props.handleTriggerFinalHole(true);
+            this.props.sendPlayerData(this.state.playersData);
+        }
+    }
+
     render(){
 
         if(this.state.initialRender){
@@ -219,6 +231,7 @@ class PlayGameState extends Component{
                     numberOfHoles={this.props.numberOfHoles}
                     latestHole={this.state.latestHole}
                     changeWhichHoleToShow={this.changeWhichHoleToShow.bind(this)}
+                    completeHole={this.completeHole.bind(this)}
                     />
                 </div>
             );

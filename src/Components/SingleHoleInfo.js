@@ -29,11 +29,21 @@ class SingleHoleInfo extends Component{
         numberOfHoles={this.props.numberOfHoles}
         />;
 
+        let finnishButton;
+        if(parseInt(this.props.holesNumber) !== this.props.numberOfHoles - 1){
+            finnishButton = <button onClick={this.props.completeHole.bind(this)}>Complete Hole</button>;
+        }
+        else{
+            finnishButton = '';
+        }
+
         return (
             <div>
                 {topComponent}
                 <br/><br/>
                 {playerComponent}
+                <br/>
+                {finnishButton}
             </div>
         );
     }

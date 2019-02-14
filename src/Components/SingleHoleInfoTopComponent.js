@@ -46,6 +46,7 @@ class SingleHoleInfoTopComponent extends Component{
                 numberOfHoles={this.props.numberOfHoles}
                 changeWhichHoleToShow={this.props.changeWhichHoleToShow.bind(this)}
                 currentHole={this.props.currentHole}
+                holesData={this.props.holeData}
                 />
 
                 <div>

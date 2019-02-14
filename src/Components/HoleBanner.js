@@ -23,6 +23,10 @@ class HoleBanner extends Component{
                 className += " greyOutThisHole";
             }
 
+            if(this.props.holesData[parseInt(x) - 1].status){
+                className += " finnishedHole";
+            }
+
             return(
                 <span className={className} onClick={this.goToHole.bind(this, x)}> {x} </span>
             );
