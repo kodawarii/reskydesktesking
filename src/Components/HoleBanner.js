@@ -13,7 +13,6 @@ class HoleBanner extends Component{
         let bufferArray = [];
         for(var i = 0; i < this.props.numberOfHoles; i++){
             bufferArray.push(i + 1);
-            console.log(i);
         }
 
         let collection = bufferArray.map(x => {

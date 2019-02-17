@@ -24,8 +24,8 @@ Others:
 <DONE - through CSS> Disable Buttons when extremes reached e.g. score 0, hole 1, etc.
 <> Form Validation where form checks for duplicate names
 <> Voice input feature
-<> "Hole Complete" feature where list of holes shows which holes are complete - because hole list destroys purpose of latest hole played
-<> 
+<DONE> "Hole Complete" feature where list of holes shows which holes are complete - because hole list destroys purpose of latest hole played
+<> Swipe to scroll accross holes
 <> 
 <> 
 <> 

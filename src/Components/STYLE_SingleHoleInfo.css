@@ -1,0 +1,17 @@
+.completeHoleBtn{
+    background-color: #FFFFFF;
+    border: 1px solid #bebebe;
+    color: #555555;
+    padding: 2px 10px;
+    text-align: center;
+    font-family: 'Gruppo', cursive;
+    display: inline-block;
+    font-size: 16px;
+    border-radius: 16px;
+}
+
+.completeHoleBtn:hover {
+    color: blue;
+    border-color: rgb(106, 109, 255);
+    box-shadow: 0 0 12px #8cd1ff;
+}

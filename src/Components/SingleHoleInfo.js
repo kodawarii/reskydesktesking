@@ -4,6 +4,10 @@ import React, { Component } from 'react';
 import SingleHoleInfoTopComponent from './SingleHoleInfoTopComponent';
 import SingleHoleInfoPlayerComponent from './SingleHoleInfoPlayerComponent'
 
+// Stylesheets
+import './STYLE_SingleHoleInfo.css';
+
+
 class SingleHoleInfo extends Component{
 
     render(){
@@ -31,7 +35,7 @@ class SingleHoleInfo extends Component{
 
         let finnishButton;
         if(this.props.holeNumber !== (parseInt(this.props.numberOfHoles) - 1) && !this.props.holeData[this.props.holeNumber].status){
-            finnishButton = <button onClick={this.props.completeHole.bind(this)}>Complete Hole</button>;
+            finnishButton = <button onClick={this.props.completeHole.bind(this)} className="completeHoleBtn">End Hole</button>;
         }
         else{
             finnishButton = '';
