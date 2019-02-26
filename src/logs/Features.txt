@@ -12,12 +12,15 @@ Core Functionality:
 <DONE> View a overall scoreboard
 <DONE> Be able to Reset Game
 
-Others:
+Others [@Todo]:
 <> 8 or more players input
 <> Reset Game "No" Option
 <> Dark Theme
 <> MyDiscs App feature
 <semi-DONE> Menu Band at top of overall scoreboard (Reset, Save screenshot, Go Back etc.)
+    |
+    ---Need to Implement actual functions
+
 <DONE> Improved design for overall Scoreboard
 <DONE> List of holes instead of scrolling
 <> Overall Scoreboard during the game instead of it being at the end (Pop-Up style)
@@ -26,9 +29,17 @@ Others:
 <> Voice input feature
 <DONE> "Hole Complete" feature where list of holes shows which holes are complete - because hole list destroys purpose of latest hole played
 <> Swipe to scroll accross holes
+<> When Hole is done, the '-' and '+' buttons should be deactivated
+<DONE-2/27/19> make nav for 18 holes in two clean lines 
 <> 
 <> 
 <> 
+<> 
+<> 
+<> 
+<> 
+<> 
+
 
 Testing:
 <> Selenium + SpecFlow Testing Framework
