@@ -62,6 +62,7 @@ class App extends Component {
     this.setState({currentComponent: 'playGameState'})
   }
 
+  /* No longer in use */
   handleGoToExcessPlayers(){
     this.setState({currentComponent: 'excessPlayers'});
   }
@@ -181,6 +182,8 @@ class App extends Component {
       this.state.stack.push(toRender);
       this.state.stack.push(showBanner);
     }
+    
+    /* no longer available */
     else if(this.state.currentComponent === 'excessPlayers'){
       toRender = <ExcessPlayerPage
       />;

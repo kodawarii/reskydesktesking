@@ -13,7 +13,8 @@ Core Functionality:
 <DONE> Be able to Reset Game
 
 Others [@Todo]:
-<> 8 or more players input
+<OLD> 8 or more players input <Deprecated>
+<DONE> 9 Players Maximum
 <> Reset Game "No" Option
 <> Dark Theme
 <> MyDiscs App feature

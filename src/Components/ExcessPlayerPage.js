@@ -1,5 +1,7 @@
 import React, {Component} from 'react';
 
+// this class is no longer in use
+
 class ExcessPlayerPage extends Component{
     render(){
         return(
